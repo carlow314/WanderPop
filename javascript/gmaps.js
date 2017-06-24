@@ -1,14 +1,90 @@
+var database;
+
 //============================================================================
-// Name        : getConcertLocation
+// Name        : initializeFirebase
 // Author      : Hai Nguyen
 // Version     :
 // Copyright   : 2017
-// Description : 
+// Description : This function creates firebase object and reference the 
+//               database.
 //============================================================================
-function getConcertLocation()
+/*function initializeFirebase()
 {
-    var address = $("#destCity").val().trim();
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDJ1q545aKirOrEgLuNRbo4hy8KAZ-pePc",
+        authDomain: "flights-and-concerts.firebaseapp.com",
+        databaseURL: "https://flights-and-concerts.firebaseio.com",
+        projectId: "flights-and-concerts",
+        storageBucket: "flights-and-concerts.appspot.com",
+        messagingSenderId: "626134173683"
+    };
+    firebase.initializeApp(config);
+
+    //Reference the database.
+    database = firebase.database();
+}*/
+
+//============================================================================
+// Name        : getLngAndLat
+// Author      : Hai Nguyen
+// Version     :
+// Copyright   : 2017
+// Description : This function returns an object in which it will have the
+//               longitude and latitude points based from firebase.
+//============================================================================
+function getLngAndLat()
+{
+    var address;
+    var row = 0;
+
+    /*event.preventDefault();
+
+    //grab user input
+    var origin = $("#originCity").val().trim();
+    var dest = $("#destCity").val().trim();
+    var depart = $("#departDate").val().trim();
+    var home = $("#returnDate").val().trim();
+
+    //create local "temporary" object for holding data
+    var vacation = {
+      startingCity: origin,
+      endingCity: dest,
+      takeoff: depart,
+      comeBack: home,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    };
+
+    //log to console
+    console.log("FireBase Starting City: " + vacation.startingCity);
+    console.log("FireBase Destination: " + vacation.endingCity);
+    console.log("FireBase Flight Start: " + vacation.comeBack);
+
+    //upload data to FireBase
+    database.ref().push(vacation);
+
+    //clear all input boxes
+    $("#originCity").val();
+    $("#destCity").val();
+    $("#departDate").val();
+    $("#returnDate").val();*/
+
+    database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) 
+    {
+        console.log(snapshot);
+        var key = snapshot.key;
+        console.log("key: " + key);
+        console.log(snapshot.val());
+        var dest = snapshot.val().endingCity;
+        console.log(dest);
+        row++;
+    }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+    });
+
+    address = dest;
     console.log("address: " + address);
+
     var queryBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json";
     var apiKey = "AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g";
     var queryURL = queryBaseUrl + "?address=" + address + "&key=" + apiKey;
@@ -41,7 +117,17 @@ function getConcertLocation()
     return concertLoc;
 }
 
+function displayConcertMapLocation()
+{
+    //Get the coordinates for the venue
+}
+
 $(document).ready(function()
 {
-    getConcertLocation();
+    //initializeFirebase();
+
+    //This function handles events where the add animal button is clicked
+    //The reason this form works because the button with the #go id
+    //was already loaded by the index.html.
+    //$("#go").on("click", getLngAndLat);
 });
