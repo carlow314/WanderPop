@@ -4,6 +4,10 @@
 //Venue 			id=venue
 //date&time 		id=rConDateTime
 //SongKick URI Btn	id=rURI
+var latitude = "51.5078";
+var longitude = "-0.128";
+var departDate = "2017-07-08";
+var returnDate = "2017-12-12";
 
 $(document).ready(function(){
 //SongKick API to specify what date range and location to call with number of responses
@@ -18,8 +22,9 @@ $.ajax({
 //What to run after data is received
 .done(function(response){
 	console.log(queryURL);
-	console.log("Event Name: " + response.resultsPage.results.event.displayName);
-	console.log("Artist: " + response.resultsPage.results.event.performance.artist.displayName);
+	console.log(response);
+
+
 });
 
 })
