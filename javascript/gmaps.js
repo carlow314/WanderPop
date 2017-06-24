@@ -1,13 +1,14 @@
 //============================================================================
-// Name        : displayConcertLocation
+// Name        : getConcertLocation
 // Author      : Hai Nguyen
 // Version     :
 // Copyright   : 2017
 // Description : 
 //============================================================================
-function getConcertLocation(address)
+function getConcertLocation()
 {
-    address = "Denver+CO";
+    var address = $("#destCity").val().trim();
+    console.log("address: " + address);
     var queryBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json";
     var apiKey = "AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g";
     var queryURL = queryBaseUrl + "?address=" + address + "&key=" + apiKey;
