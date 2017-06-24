@@ -13,6 +13,7 @@
   	<script src="https://code.jquery.com/jquery-3.2.1.js"
   	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   	crossorigin="anonymous"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   	<script type="text/javascript" src="javascript/concertResults.js"></script>
   	<script type="text/javascript" src="javascript/flights.js"></script>
@@ -35,29 +36,15 @@
 			<form>
 				<div class="form-group">
 					<label>Origin (city)</label>
-					<select class="form-control" id="originCity">
-					      	<option>Denver, CO</option>
-					      	<option>Austin, TX</option>
-					      	<option>New York City, NY</option>
-					      	<option>Los Angeles, CA</option>
-					      	<option>Atlanta, GA</option>
-					      	<option>Chicago, IL</option>
-					      	<option>Baltimore, MD</option>
-					      	<option>Boston, MA</option>
-				    </select>
-			  	</div>
-			  	<div class="form-group">
-				    <label>Destination (city)</label>
-				   <select class="form-control" id="destCity">
-					      	<option>Denver, CO</option>
-					      	<option>Austin, TX</option>
-					      	<option>New York City, NY</option>
-					      	<option>Los Angeles, CA</option>
-					      	<option>Atlanta, GA</option>
-					      	<option>Chicago, IL</option>
-					      	<option>Baltimore, MD</option>
-					      	<option>Boston, MA</option>
-				    </select>
+					<div class="ui-widgetA">
+						<label for="origin-city"></label>
+						<input id="originCity">
+					</div>
+			  			<label class="customLabel">Destination (city)</label>
+					<div class="ui-widgetB">
+						<label for="destination-city"></label>
+						<input id="destCity">
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="projectDateInputField1">Date Departing</label>
