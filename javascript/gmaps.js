@@ -1,5 +1,3 @@
-var location = {};
-
 //============================================================================
 // Name        : displayConcertLocation
 // Author      : Hai Nguyen
@@ -9,9 +7,14 @@ var location = {};
 //============================================================================
 function getConcertLocation(address)
 {
+    address = "Denver+CO";
     var queryBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json";
     var apiKey = "AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g";
     var queryURL = queryBaseUrl + "?address=" + address + "&key=" + apiKey;
+    var concertLoc = {
+        "lat": 0,
+        "lng": 0
+    };
 
     console.log(queryURL);
 
@@ -25,14 +28,16 @@ function getConcertLocation(address)
         for (var i = 0; i < len; i++)
         {
             // Creates an element to hold the rating
-            location["lat"] = response["results"][i].geometry.location.lat;
-            location["lng"] = response["results"][i].geometry.location.lng;
-            console.log(location["lat"]);
-            console.log(location["lng"]);
+            concertLoc.lat = response["results"][i].geometry.location.lat;
+            concertLoc.lng = response["results"][i].geometry.location.lng;
+            console.log(concertLoc.lat);
+            console.log(concertLoc.lng);
         }
         /*var myJSON = JSON.stringify(response["results"]);
         console.log(myJSON);*/
     });
+
+    return concertLoc;
 }
 
 $(document).ready(function()
