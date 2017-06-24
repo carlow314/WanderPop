@@ -1,0 +1,84 @@
+body {
+	background-image: url("../images/bandPhoto.jpg");
+	background-position: center;
+}
+
+.container-fluid {
+	margin: 20px 40px;
+}
+
+.jumbotron {
+	color: white;
+	background-color: rgba(1, 80, 183, .8);
+	margin-bottom: 10px;
+}
+
+.textTransform {
+	position: relative;
+	left: -100px;
+	margin-bottom: -50px;
+	-ms-transform: rotate(-10deg); /* IE 9 */
+    -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+    transform: rotate(-10deg);
+}
+
+#mainTA {
+	font-family: 'Frijole', cursive;
+	color: rgba(248, 0, 70, 1);
+	text-shadow: -1px 1px 2px rgba(255, 255, 255, 1);
+}
+
+#mainTB {
+	font-family: 'Pacifico', cursive;
+}
+
+#subT {
+	font-family: 'Quicksand', sans-serif;
+}
+
+form {
+	margin: 10px;
+}
+
+.panel {
+	background-color: rgba(22, 22, 22, .5);
+	border: none;
+}
+
+.panel-default > .panel-heading {
+	background-color: rgba(1, 80, 183, .8);
+	color: white;
+}
+
+label {
+	color: rgba(248, 0, 70, 1);
+	text-shadow: -1px 1px 1px rgba(255, 255, 255, 1);
+}
+
+button {
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#go {
+	height: 60px;
+	width: 150px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	background-color: rgba(248, 0, 70, 1);
+	border-color: #ddd;
+}
+
+#go:hover {
+	background-color: rgba(1, 80, 183, .8);
+}
+
+#skLogo {
+	width: 150px;
+	float: right;
+	margin-right: 15px;
+	padding: 5px;
+	border: 1px solid white;
+	border-radius: 4px;
+}
