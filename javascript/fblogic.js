@@ -1,5 +1,10 @@
 var database;
 
+function getDatabase()
+{
+  return database;
+}
+
 function initializeFb()
 {
   // Initialize Firebase
