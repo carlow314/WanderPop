@@ -1,18 +1,38 @@
 //============================================================================
-// Name        : getConcertLocation
+// Name        : getLngAndLat
 // Author      : Hai Nguyen
 // Version     :
 // Copyright   : 2017
-// Description : 
+// Description : This function returns an object in which it will have the
+//               longitude and latitude points based from firebase.
 //============================================================================
-function getConcertLocation()
+function getLngAndLat()
 {
-    var address = $("#destCity").val().trim();
+    var address;
+    var dest;
+    var row = 0;
+    var db = getDatabase();
+
+    db.ref().orderByChild("dateAdded").on("child_added", function(snapshot) 
+    {
+        console.log(snapshot);
+        var key = snapshot.key;
+        console.log("key: " + key);
+        console.log(snapshot.val());
+        dest = snapshot.val().endingCity;
+        console.log(dest);
+        row++;
+    }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+    });
+
+    address = dest;
     console.log("address: " + address);
+
     var queryBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json";
     var apiKey = "AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g";
     var queryURL = queryBaseUrl + "?address=" + address + "&key=" + apiKey;
-    var concertLoc = {
+    var loc = {
         "lat": 0,
         "lng": 0
     };
@@ -29,19 +49,22 @@ function getConcertLocation()
         for (var i = 0; i < len; i++)
         {
             // Creates an element to hold the rating
-            concertLoc.lat = response["results"][i].geometry.location.lat;
-            concertLoc.lng = response["results"][i].geometry.location.lng;
-            console.log(concertLoc.lat);
-            console.log(concertLoc.lng);
+            loc.lat = response["results"][i].geometry.location.lat;
+            loc.lng = response["results"][i].geometry.location.lng;
+            console.log(loc);
         }
         /*var myJSON = JSON.stringify(response["results"]);
         console.log(myJSON);*/
     });
 
-    return concertLoc;
+    return loc;
+}
+
+function displayConcertMapLocation()
+{
+    //Get the coordinates for the venue
 }
 
 $(document).ready(function()
 {
-    getConcertLocation();
 });
