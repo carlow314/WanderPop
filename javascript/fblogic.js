@@ -7,6 +7,7 @@ function getDatabase()
 
 function initializeFb()
 {
+  console.log("Enter initializeFb()")
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDJ1q545aKirOrEgLuNRbo4hy8KAZ-pePc",
@@ -18,6 +19,7 @@ function initializeFb()
   };
   firebase.initializeApp(config);
   database = firebase.database();
+  console.log("Exit initializeFb()");
 }
 
 function getData()
@@ -54,7 +56,7 @@ function addRow()
     endingCity: dest,
     takeoff: depart,
     comeBack: home,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+    createdDate: firebase.database.ServerValue.TIMESTAMP
   };
 
   //log to console
