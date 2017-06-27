@@ -72,12 +72,8 @@
 			  		<div class="eventful-badge eventful-large">
 					  <img src="http://api.eventful.com/images/powered/eventful_139x44.gif"
 					    alt="Local Events, Concerts, Tickets">
-					  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+					  <p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
 					</div>
-				</div>
-				<div class="row buttonRow">
-					<button type="submit" class="btn btn-primary" id="go"><strong>GO!</strong></button>
-					<a href="http://www.songkick.com/" target="_blank"> <img id="skLogo" src="images/powered-by-songkick-pink.png"></a>
 				</div>
 			</form>
 		</div>
@@ -88,25 +84,25 @@
   			<div class="row">
   			<form>
 				<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<label>Origin (city)</label>
+					<label>Origin</label>
 					<div class="ui-widgetA">
 						<label for="origin-city"></label>
 						<input id="originCityB">
 					</div>
 				</div>
 				<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-			  			<label>Destination (city)</label>
+			  			<label>Destination</label>
 					<div class="ui-widgetB">
 						<label for="destination-city"></label>
 						<input id="destCityB">
 					</div>
 				</div>
 				<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<label for="projectDateInputField1">Date Departing</label>
+					<label for="projectDateInputField1">Departing</label>
 					<input class="form-control" type="date" value="2017-01-01" id="departDateB">
 			  	</div>
 			  	<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<label for="projectDateInputField2">Date Returning</label>
+					<label for="projectDateInputField2">Returning</label>
 					<input class="form-control" type="date" value="2017-01-01" id="returnDateB">
 			  	</div>
 			  	<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -126,6 +122,59 @@
   			</div>
 		</div>
 		<div id="gMap" class="container-fluid"></div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="panel panel-default custom-panel">
+					<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-plane"></span> Flights</strong></div>
+					<table id="flightResults">
+						<tr>
+							<th>Flight #: </th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Airline: </th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Departure Date: </th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Arrival Date: </th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Cost: </th>
+							<td></td>
+						</tr>						
+					</table>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="panel panel-default custom-panel">
+					<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-flash"></span> Concerts</strong></div>
+					<table id="concertResults">
+						<tr>
+							<th>Artist: </th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Venue: </th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Date + Time: </th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>URL: </th>
+							<td></td>
+						</tr>												
+					</table>
+				</div>
+			</div>
+		</div>
+		</div>
 	</div>
 </body>
 
