@@ -4,39 +4,38 @@
 <head>
 
 	<title>WanderPop</title>
-  	
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-  	<link href="https://fonts.googleapis.com/css?family=Frijole|Pacifico|Quicksand" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-  	<script src="https://code.jquery.com/jquery-3.2.1.js"
-  	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  	crossorigin="anonymous"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Frijole|Pacifico|Quicksand" rel="stylesheet">
 
-  	<!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+	<!-- Firebase Reference -->
+	<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 
 	<script type="text/javascript" src="javascript/fblogic.js"></script>
-  	<script type="text/javascript" src="javascript/concertResults.js"></script>
-  	<script type="text/javascript" src="javascript/flights.js"></script>
-  	<script type="text/javascript" src="javascript/gmaps.js"></script>
-  	<script type="text/javascript" src="javascript/app.js"></script>
+	<script type="text/javascript" src="javascript/concertResults.js"></script>
+	<script type="text/javascript" src="javascript/flights.js"></script>
+	<script type="text/javascript" src="javascript/gmaps.js"></script>
+	<script type="text/javascript" src="javascript/app.js"></script>
 </head>
 
 <body>
-  <div class="background-image"></div>
-  <div class="container-fluid">
-    <div id="jtronCustom" class="jumbotron text-center">
-      <div class="textTransform">
-        <h1><span id="mainTA">Wacky</span></h1></div>
-      <h1><span id="mainTB">Wanderlust</span></h1>
-      <hr>
-      <p id="subT"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Get Flights - See Concerts <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></p>
-    </div>
+	<div class="background-image"></div>
+	<div class="container-fluid">
+		<div id="jtronCustom" class="jumbotron text-center">
+			<div class="textTransform">
+				<h1><span id="mainTA">Wacky</span></h1></div>
+			<h1><span id="mainTB">Wanderlust</span></h1>
+			<hr>
+			<p id="subT"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Get Flights - See Concerts <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></p>
+		</div>
 
-		<div class="panel panel-default">	
+		<div class="panel panel-default">
 			<div class="panel-heading"><strong><span class="glyphicon glyphicon-plane"></span> When and where are you headed?</strong></div>
 			<form>
 				<div class="form-group">
@@ -45,7 +44,7 @@
 						<label for="origin-city"></label>
 						<input id="originCity">
 					</div>
-			  			<label class="customLabel">Destination (city)</label>
+					<label class="customLabel">Destination (city)</label>
 					<div class="ui-widgetB">
 						<label for="destination-city"></label>
 						<input id="destCity">
@@ -54,12 +53,12 @@
 				<div class="form-group">
 					<label for="projectDateInputField1">Date Departing</label>
 					<input class="form-control" type="date" value="2017-01-01" id="departDate">
-			  	</div>
-			  	<div class="form-group">
+				</div>
+				<div class="form-group">
 					<label for="projectDateInputField2">Date Returning</label>
 					<input class="form-control" type="date" value="2017-01-01" id="returnDate">
-			  	</div>
-			  	<div class="form-group">
+				</div>
+				<div class="form-group">
 					<label for="projectPassengerInputField">Number of Passengers</label>
 					<select class="form-control" id="passNum">
 					      	<option>1</option>
@@ -68,10 +67,10 @@
 					      	<option>4</option>
 					      	<option>5</option>
 				    </select>
-			  	</div>
-			  	<div class="row buttonRow">
-			  		<button type="submit" class="btn btn-primary" id="go"><strong>GO!</strong></button>
-			  		<a href="http://www.songkick.com/" target="_blank"> <img id="skLogo" src="images/powered-by-songkick-pink.png"></a>
+				</div>
+				<div class="row buttonRow">
+					<button type="submit" class="btn btn-primary" id="go"><strong>GO!</strong></button>
+					<a href="http://www.songkick.com/" target="_blank"> <img id="skLogo" src="images/powered-by-songkick-pink.png"></a>
 				</div>
 			</form>
 		</div>
