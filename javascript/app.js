@@ -33,7 +33,7 @@ $( function() {
 
 $( function() {
     var availableTags = [
-      { label: "Denver, CO", category: "DIA" },
+      { label: "Denver, CO", category: "DEN" },
       { label: "Austin, TX", category: "AUS" },
       { label: "New York City, NY", category: "JFK" },
       { label: "Los Angeles, LA", category: "LAX" },
@@ -49,7 +49,7 @@ $( function() {
 
 $( function() {
     var availableTags = [
-      { label: "Denver, CO", category: "DIA" },
+      { label: "Denver, CO", category: "DEN" },
       { label: "Austin, TX", category: "AUS" },
       { label: "New York City, NY", category: "JFK" },
       { label: "Los Angeles, LA", category: "LAX" },
