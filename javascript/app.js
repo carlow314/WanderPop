@@ -1,14 +1,14 @@
 
 $( function() {
     var availableTags = [
-      { label: "Denver, CO", category: "DIA" },
-      { label: "Austin, TX", category: "AUS" },
-      { label: "New York City, NY", category: "JFK" },
-      { label: "Los Angeles, LA", category: "LAX" },
-      { label: "Atlanta, GA", category: "ATL" },
-      { label: "Chicago, IL", category: "ORD" },
-      { label: "Baltimore, MD", category: "BWI" },
-      { label: "Boston, MA", category: "BOS" },
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX", category: "LAX" },
+      { label: "Atlanta, GA -ATL", category: "ATL" },
+      { label: "Chicago, IL - ORD", category: "ORD" },
+      { label: "Baltimore, MD - BWI", category: "BWI" },
+      { label: "Boston, MA - BOS", category: "BOS" },
     ];
     $( "#originCity" ).autocomplete({
       source: availableTags
@@ -17,14 +17,14 @@ $( function() {
 
 $( function() {
     var availableTags = [
-      { label: "Denver, CO", category: "DIA" },
-      { label: "Austin, TX", category: "AUS" },
-      { label: "New York City, NY", category: "JFK" },
-      { label: "Los Angeles, LA", category: "LAX" },
-      { label: "Atlanta, GA", category: "ATL" },
-      { label: "Chicago, IL", category: "ORD" },
-      { label: "Baltimore, MD", category: "BWI" },
-      { label: "Boston, MA", category: "BOS" },
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX ", category: "LAX" },
+      { label: "Atlanta, GA - ATL", category: "ATL" },
+      { label: "Chicago, IL - ORD", category: "ORD" },
+      { label: "Baltimore, MD - BWI", category: "BWI" },
+      { label: "Boston, MA - BOS", category: "BOS" },
     ];
     $( "#destCity" ).autocomplete({
       source: availableTags
@@ -33,14 +33,14 @@ $( function() {
 
 $( function() {
     var availableTags = [
-      { label: "Denver, CO", category: "DEN" },
-      { label: "Austin, TX", category: "AUS" },
-      { label: "New York City, NY", category: "JFK" },
-      { label: "Los Angeles, LA", category: "LAX" },
-      { label: "Atlanta, GA", category: "ATL" },
-      { label: "Chicago, IL", category: "ORD" },
-      { label: "Baltimore, MD", category: "BWI" },
-      { label: "Boston, MA", category: "BOS" },
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX", category: "LAX" },
+      { label: "Atlanta, GA - ATL", category: "ATL" },
+      { label: "Chicago, IL - ORD", category: "ORD" },
+      { label: "Baltimore, MD -BWI", category: "BWI" },
+      { label: "Boston, MA - BOS", category: "BOS" },
     ];
     $( "#originCityB" ).autocomplete({
       source: availableTags
@@ -49,14 +49,14 @@ $( function() {
 
 $( function() {
     var availableTags = [
-      { label: "Denver, CO", category: "DEN" },
-      { label: "Austin, TX", category: "AUS" },
-      { label: "New York City, NY", category: "JFK" },
-      { label: "Los Angeles, LA", category: "LAX" },
-      { label: "Atlanta, GA", category: "ATL" },
-      { label: "Chicago, IL", category: "ORD" },
-      { label: "Baltimore, MD", category: "BWI" },
-      { label: "Boston, MA", category: "BOS" },
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX", category: "LAX" },
+      { label: "Atlanta, GA -ATL", category: "ATL" },
+      { label: "Chicago, IL -ORD", category: "ORD" },
+      { label: "Baltimore, MD - BWI", category: "BWI" },
+      { label: "Boston, MA -BOS", category: "BOS" },
     ];
     $( "#destCityB" ).autocomplete({
       source: availableTags

@@ -16,12 +16,12 @@
 
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
-
+	<script type="text/javascript" src="javascript/app.js"></script>
 	<script type="text/javascript" src="javascript/fblogic.js"></script>
 	<script type="text/javascript" src="javascript/concertResults.js"></script>
 	<script type="text/javascript" src="javascript/flights.js"></script>
 	<script type="text/javascript" src="javascript/gmaps.js"></script>
-	<script type="text/javascript" src="javascript/app.js"></script>
+
 </head>
 
 <body>
@@ -41,12 +41,12 @@
 					<label>Origin (city)</label>
 					<div class="ui-widgetA">
 						<label for="origin-city"></label>
-						<input id="originCity">
+						<input id="originCity" placeholder="Denver,CO - DEN">
 					</div>
 					<label class="customLabel">Destination (city)</label>
 					<div class="ui-widgetB">
 						<label for="destination-city"></label>
-						<input id="destCity">
+						<input id="destCity" placeholder="Boston,MA - BOS">
 					</div>
 				</div>
 				<div class="form-group">
@@ -66,116 +66,153 @@
 					      	<option>4</option>
 					      	<option>5</option>
 				    </select>
-			  	</div>
-			  	<div class="row buttonRow">
-			  		<button type="submit" class="btn btn-primary" id="go"><strong>GO!</strong></button>
-			  		<div class="eventful-badge eventful-large">
-					  <img src="http://api.eventful.com/images/powered/eventful_139x44.gif"
-					    alt="Local Events, Concerts, Tickets">
-					  <p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
-					</div>
-				</div>
+					<<<<<<< Updated upstream </div>
+						<div class="row buttonRow">
+							<button type="submit" class="btn btn-primary" id="go"><strong>GO!</strong></button>
+							<div class="eventful-badge eventful-large">
+								<img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
+								<p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
+								=======
+							</div>
+							<div class="row buttonRow">
+								<button type="submit" class="btn btn-primary" id="go"><strong>GO!</strong></button>
+								<div class="eventful-badge eventful-large">
+									<img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
+									<p><a href="http://eventful.com/">Events</a> by Eventful</p>
+									>>>>>>> Stashed changes
+								</div>
+							</div>
 			</form>
-		</div>
-	</div>
-	<div id="sectionB" class="container-fluid">
-		<div class="page-header">
-  			<h2>Search Results</h2>
-  			<div class="row">
-  			<form>
-				<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<label>Origin</label>
-					<div class="ui-widgetA">
-						<label for="origin-city"></label>
-						<input id="originCityB">
+			</div>
+			</div>
+			<div id="sectionB" class="container-fluid">
+				<div class="page-header">
+					<<<<<<< Updated upstream <h2>Search Results</h2>
+						<div class="row">
+							<form>
+								<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<label>Origin</label>
+									<div class="ui-widgetA">
+										<label for="origin-city"></label>
+										<input id="originCityB">
+									</div>
+								</div>
+								<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<label>Destination</label>
+									<div class="ui-widgetB">
+										<label for="destination-city"></label>
+										<input id="destCityB">
+									</div>
+								</div>
+								<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<label for="projectDateInputField1">Departing</label>
+									<input class="form-control" type="date" value="2017-01-01" id="departDateB">
+								</div>
+								<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<label for="projectDateInputField2">Returning</label>
+									<input class="form-control" type="date" value="2017-01-01" id="returnDateB">
+								</div>
+								<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<label for="projectPassengerInputField">Passengers</label>
+									<select class="form-control" id="passNumB">
+=======
+			<h2>Search Results</h2>
+			<div class="row">
+				<form>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label>Origin (city)</label>
+						<div class="ui-widgetA">
+							<label for="origin-city"></label>
+							<input id="originCityB">
+						</div>
 					</div>
-				</div>
-				<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-			  			<label>Destination</label>
-					<div class="ui-widgetB">
-						<label for="destination-city"></label>
-						<input id="destCityB">
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label>Destination (city)</label>
+						<div class="ui-widgetB">
+							<label for="destination-city"></label>
+							<input id="destCityB">
+						</div>
 					</div>
-				</div>
-				<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<label for="projectDateInputField1">Departing</label>
-					<input class="form-control" type="date" value="2017-01-01" id="departDateB">
-			  	</div>
-			  	<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<label for="projectDateInputField2">Returning</label>
-					<input class="form-control" type="date" value="2017-01-01" id="returnDateB">
-			  	</div>
-			  	<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<label for="projectPassengerInputField">Passengers</label>
-					<select class="form-control" id="passNumB">
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label for="projectDateInputField1">Date Departing</label>
+						<input class="form-control" type="date" value="2017-01-01" id="departDateB">
+					</div>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label for="projectDateInputField2">Date Returning</label>
+						<input class="form-control" type="date" value="2017-01-01" id="returnDateB">
+					</div>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label for="projectPassengerInputField">Passengers</label>
+						<select class="form-control" id="passNumB">
+>>>>>>> Stashed changes
 					      	<option>1</option>
 					      	<option>2</option>
 					      	<option>3</option>
 					      	<option>4</option>
 					      	<option>5</option>
 				    </select>
-			  	</div>
-			  	<div class="buttonRow col-lg-2 col-md-2 col-sm-2 col-xs-2">
-			  		<button type="submit" class="btn btn-primary" id="goAgain"><strong>GO!</strong></button>
+								</div>
+								<div class="buttonRow col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<button type="submit" class="btn btn-primary" id="goAgain"><strong>GO!</strong></button>
+								</div>
+							</form>
+						</div>
 				</div>
-			</form>
-  			</div>
-		</div>
-		<div id="gMap" class="container-fluid"></div>
-		<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-				<div class="panel panel-default custom-panel">
-					<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-plane"></span> Flights</strong></div>
-					<table id="flightResults">
-						<tr>
-							<th>Flight #: </th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>Airline: </th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>Departure Date: </th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>Arrival Date: </th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>Cost: </th>
-							<td></td>
-						</tr>						
-					</table>
+				<div id="gMap" class="container-fluid"></div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="panel panel-default custom-panel">
+							<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-plane"></span> Flights</strong></div>
+							<table id="flightResults">
+								<tr>
+									<th>Flight #: </th>
+									<td></td>
+								</tr>
+								<tr>
+									<th>Airline: </th>
+									<td></td>
+								</tr>
+								<tr>
+									<th>Departure Date: </th>
+									<td></td>
+								</tr>
+								<tr>
+									<th>Arrival Date: </th>
+									<td></td>
+								</tr>
+								<tr>
+									<th>Cost: </th>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="panel panel-default custom-panel">
+							<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-flash"></span> Concerts</strong></div>
+							<table id="concertResults">
+								<tr>
+									<th>Artist: </th>
+									<td></td>
+								</tr>
+								<tr>
+									<th>Venue: </th>
+									<td></td>
+								</tr>
+								<tr>
+									<th>Date + Time: </th>
+									<td></td>
+								</tr>
+								<tr>
+									<th>URL: </th>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-				<div class="panel panel-default custom-panel">
-					<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-flash"></span> Concerts</strong></div>
-					<table id="concertResults">
-						<tr>
-							<th>Artist: </th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>Venue: </th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>Date + Time: </th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>URL: </th>
-							<td></td>
-						</tr>												
-					</table>
-				</div>
-			</div>
 		</div>
-		</div>
-	</div>
 </body>
 
 </html>
