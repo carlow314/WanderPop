@@ -22,16 +22,10 @@ body {
     transform: rotate(-10deg);
 }
 
-#mainTA {
-	font-family: 'Frijole', cursive;
-	color: rgba(71,171,21, 1);
-	text-shadow: -2px 2px 2px rgba(255, 255, 255, 1);
+.mainT {
+	width: 100%;
 }
-
-#mainTB {
-	font-family: 'Pacifico', cursive;
-}
-
+	
 #subT {
 	font-family: 'Quicksand', sans-serif;
 }
