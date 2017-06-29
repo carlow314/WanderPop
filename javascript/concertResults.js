@@ -5,6 +5,9 @@
 //date&time 		id=rConDateTime
 //SongKick URI Btn	id=rURI
 
+var destCity = $("#destCity").val();
+var departDate = $("#departDate").val();
+var returnDate = $("#returnDate").val();
 var conInfo = [];
 
 function getConcerts() {
@@ -20,7 +23,15 @@ function getConcerts() {
 	$.ajax({
 		url: queryURL,
 		method: "GET"
-	}).done(function(response){
+	})
+	//What to run after data is received
+	.done(function(response){
+		var obj =
+		{
+			"lat": 0,
+			"lng": 0,
+			"venueName": ""
+		};
 		console.log(response);
 		var responseObject = JSON.parse(response);
 		var shortenCode = responseObject.events.event;
@@ -28,18 +39,13 @@ function getConcerts() {
 		var len = shortenCode.length;
 		var htmlElements = "";
 		//loop through results to pull specific data from each object
-		for (var i=0; i < len; i++) {
-			var evtLoc = {
-				"lat": 0,
-				"lng": 0,
-				"venNm": ""
-			};
-			evtLoc.lat = parseFloat(shortenCode[i].latitude);
-			evtLoc.lng = parseFloat(shortenCode[i].longitude);
-			evtLoc.venNm = shortenCode[i].venue_name;
-			conInfo.push(evtLoc);
-			htmlElements += "<div class='row'>" + 
-							"  <p>Artist: " + shortenCode[i].title + "</p>" +
+		for (var i=0; i < len; i++){
+			obj.lat = shortenCode[i].latitude;
+			obj.lng = shortenCode[i].longitude;
+			obj.venueName = shortenCode[i].venue_name;
+			conInfo.push(obj);
+			htmlElements += "<div class='row'>" +
+							"  <p>Artist: " + shortenCode[i].performers.name + "</p>" +
 							"  <p>Venue: " + shortenCode[i].venue_name + "</p>" +
 							"  <p>Date: " + shortenCode[i].start_time + "</p>" +
 							"  <p>URL: " + shortenCode[i].url + "</p>" +
@@ -52,5 +58,3 @@ function getConcerts() {
     	throw err;
     });;
 }
-
-
