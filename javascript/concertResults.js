@@ -28,7 +28,7 @@ function getConcerts() {
 		var len = shortenCode.length;
 		var htmlElements = "";
 		//loop through results to pull specific data from each object
-		for (var i=0; i < len; i++){
+		for (var i=0; i < len; i++) {
 			var evtLoc = {
 				"lat": 0,
 				"lng": 0,
@@ -47,6 +47,7 @@ function getConcerts() {
 		}
 		console.log("conInfo: ", conInfo);
 		$("#concertResults").html(htmlElements);
+		showMaps();
 	}).fail(function(err) {
     	//console.log(err);
     	throw err;
