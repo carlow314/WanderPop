@@ -1,85 +1,70 @@
 //============================================================================
-// Name        : getLngAndLat
+// Name        : loadMapAPI
 // Author      : Hai Nguyen
 // Version     :
 // Copyright   : 2017
-// Description : This function returns an object in which it will have the
-//               longitude and latitude points based from firebase.
+// Description : This function 
 //============================================================================
-function getLngAndLat()
+function loadAPI()
 {
-    console.log("Enter getLngAndLat()");
-    var address;
-    var dest;
-    var row = 0;
-    var loc = {
-        "lat": 0,
-        "lng": 0
-    };
-
-    var db = getDatabase();
-    var rootRef = db.ref();
-    var query = rootRef.orderByChild("createdDate").limitToLast(1);
-    query.on("child_added", function(snapshot) 
+    getConcerts();
+    console.log(conInfo);
+    var script = document.createElement("script");
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g&callback=loadMaps";
+    script.type = "text/javascript";
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+function loadMaps() 
+{
+    console.log("conInfo: ", conInfo);
+    var infowindow = new google.maps.InfoWindow();
+    var map;
+    var uluru;
+    for (var i = 0; i < conInfo.length; i++)
     {
-        console.log(snapshot);
-        var key = snapshot.key;
-        console.log("key: " + key);
-        console.log(snapshot.val());
-        dest = snapshot.val().endingCity;
-        console.log("Destination: " + dest);
-        row++;
-        address = dest;
-        console.log("address: " + address);
-
-        var queryBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json";
-        var apiKey = "AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g";
-        var queryURL = queryBaseUrl + "?address=" + address + "&key=" + apiKey;
-
-        console.log(queryURL);
-
-        // Creates AJAX call 
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).done(function(response) {
-            var len = response["results"].length;
-            console.log("len: " + len);
-            for (var i = 0; i < len; i++)
-            {
-                // Creates an element to hold the rating
-                loc.lat = response["results"][i].geometry.location.lat;
-                loc.lng = response["results"][i].geometry.location.lng;
-                console.log(loc);
-            }
-            /*var myJSON = JSON.stringify(response["results"]);
-            console.log(myJSON);*/
+        uluru = {
+            lat: conInfo[i]["lat"], 
+            lng: conInfo[i]["lng"]
+        };
+        console.log("uluru: ", uluru);
+        if (i === 0)
+        {
+            map = new google.maps.Map(document.getElementById("gMap"), {
+                zoom: 8,
+                center: uluru,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+        }
+        marker = new google.maps.Marker({
+            position: uluru,
+            map: map
         });
-    }, function(errorObject) {
-        console.log("Errors handled: " + errorObject.code);
-    });
-    console.log("Exit getLngAndLat()");
-    return loc;
-}
+        google.maps.event.addListener(marker, "click", (function(marker, i) {
+            return function() {
+                infowindow.setContent(conInfo[i]["venNm"]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+    // var map = new google.maps.Map(document.getElementById("gMap"), {
+    //     zoom: 10,
+    //     center: new google.maps.LatLng(-33.92, 151.25),
+    //     mapTypeId: google.maps.MapTypeId.ROADMAP
+    // });
+    // var infowindow = new google.maps.InfoWindow();
+    // var marker, i;
 
-function initMap() 
-{
-    //var html = $("#gMap");
-    var map = new google.maps.Map(document.getElementById("gMap"), {
-        center: {
-            lat: -34.397, 
-            lng: 150.644
-        },
-        zoom: 8
-    });
-}
+    // for (i = 0; i < locations.length; i++) { 
+    //     marker = new google.maps.Marker({
+    //         position: new google.maps.LatLng(locations[i]["lat"], locations[i]["lng"]),
+    //         map: map
+    //     });
 
-function displayConcertMapLocation()
-{
-    //Get the coordinates for the venue
+    //     google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    //         return function() {
+    //             infowindow.setContent(locations[i]["name"]);
+    //             infowindow.open(map, marker);
+    //         }
+    //     })(marker, i));
+    // }
 }
-
-$(document).ready(function()
-{
-    //getLngAndLat();
-});
