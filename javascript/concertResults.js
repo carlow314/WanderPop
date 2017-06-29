@@ -45,7 +45,6 @@ function getConcerts() {
 							"  <p>URL: " + shortenCode[i].url + "</p>" +
 							"</div>"
 		}
-		console.log("conInfo: ", conInfo);
 		$("#concertResults").html(htmlElements);
 		showMaps();
 	}).fail(function(err) {
