@@ -66,7 +66,7 @@ $( document ).ready(function() {
       });
     } );
   $( "#go" ).click(function() {
-
+    // Keri's validation code goes here!
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show( 500 );
   });
