@@ -1,9 +1,10 @@
 //============================================================================
-// Name        : loadMapAPI
+// Name        : showMaps
 // Author      : Hai Nguyen
 // Version     :
 // Copyright   : 2017
-// Description : This function 
+// Description : This function loads the google maps api and calls loadMaps()
+//               function to display the maps into a given HTML div element.
 //============================================================================
 function showMaps()
 {
@@ -12,6 +13,14 @@ function showMaps()
     script.type = "text/javascript";
     document.getElementsByTagName("head")[0].appendChild(script);
 }
+
+//============================================================================
+// Name        : showMaps
+// Author      : Hai Nguyen
+// Version     :
+// Copyright   : 2017
+// Description : This function displays the maps into a given HTML div element.
+//============================================================================
 function loadMaps() 
 {
     console.log("conInfo: ", conInfo);

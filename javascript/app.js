@@ -71,7 +71,6 @@ $( document ).ready(function() {
     $( "#sectionB" ).show( 500 );
     getConcerts();
   });
-
   $( "#startOver" ).click(function() {
     $( "#sectionB" ).hide();
     $( "#sectionA" ).show( 500 );
