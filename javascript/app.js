@@ -66,8 +66,14 @@ $( document ).ready(function() {
       });
     } );
   $( "#go" ).click(function() {
+
     $( "#sectionA" ).hide();
-    $( "#sectionB" ).show( 1000 );
+    $( "#sectionB" ).show( 500 );
+  });
+
+  $( "#startOver" ).click(function() {
+    $( "#sectionB" ).hide();
+    $( "#sectionA" ).show( 500 );
   });
 
 });

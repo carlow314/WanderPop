@@ -136,6 +136,11 @@ input {
 	border-radius: 4px;
 }
 
+#gMap {
+	width: 100%;
+	height: 400px;
+}
+
 #goAgain {
 	height: 34px;
 	width: 100%;
@@ -157,4 +162,15 @@ input {
 
 table {
 	margin: 10px;
+}
+
+#startOver {
+	height: 34px;
+	width: 100%;
+	background-color: rgba(71,171,21, 1);
+	border-color: #ddd;
+}
+
+#startOver:hover {
+	background-color: rgba(1, 80, 183, .8);
 }

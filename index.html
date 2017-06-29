@@ -2,10 +2,12 @@
 <html>
 
 <head>
-
+  	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>WanderPop</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Arvo:700" rel="stylesheet">
@@ -16,6 +18,7 @@
 
 	<!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+	
 	<script type="text/javascript" src="javascript/app.js"></script>
 	<script type="text/javascript" src="javascript/fblogic.js"></script>
 	<script type="text/javascript" src="javascript/concertResults.js"></script>
@@ -27,9 +30,9 @@
 <body>
 	<div id="sectionA" class="container-fluid">
 		<div id="jtronCustom" class="jumbotron text-center">
-			<img class="mainT" src="images/WanderPop-Logo-B.png" alt="WanderPop Logo">
+			<img class="mainT animated fadeInDown" src="images/WanderPop-Logo-B.png" alt="WanderPop Logo">
 			<hr>
-			<p id="subT"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Get Flights - See Concerts <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></p>
+			<p class="animated fadeInUp" id="subT"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Get Flights - See Concerts <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></p>
 		</div>
 
 		<div class="panel panel-default">
@@ -39,12 +42,12 @@
 					<label>Origin (city)</label>
 					<div class="ui-widgetA">
 						<label for="origin-city"></label>
-						<input id="originCity" placeholder="Denver,CO - DEN">
+						<input id="originCity" placeholder=" Denver,CO - DEN">
 					</div>
 					<label class="customLabel">Destination (city)</label>
 					<div class="ui-widgetB">
 						<label for="destination-city"></label>
-						<input id="destCity" placeholder="Boston,MA - BOS">
+						<input id="destCity" placeholder=" Boston,MA - BOS">
 					</div>
 				</div>
 				<div class="form-group">
@@ -66,114 +69,85 @@
 				    </select>
 					</div>
 					<div class="row buttonRow">
-						<button type="submit" class="btn btn-primary" id="go"><strong>GO!</strong></button>
-						<div class="eventful-badge eventful-large">
+						<button type="submit" onclick="loadAPI()" class="btn btn-primary animated bounceInLeft" id="go"><strong>GO!</strong></button>
+						<div class="eventful-badge eventful-large animated bounceInRight">
 							<img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
 							<p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
 						</div>
 					</div>		
 				</form>
 			</div>
+		</div>		
+	<div id="sectionB" class="container-fluid">
+		<div class="page-header">
+			<h2 class="">Search Results</h2>
+			<div class="row">
+				<form>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label>Origin</label>
+						<div class="ui-widgetA">
+							<label for="origin-city"></label>
+							<input id="originCityB">
+						</div>
+					</div>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label>Destination</label>
+						<div class="ui-widgetB">
+							<label for="destination-city"></label>
+							<input id="destCityB">
+						</div>
+					</div>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label for="projectDateInputField1">Departing</label>
+						<input class="form-control" type="date" value="2017-01-01" id="departDateB">
+					</div>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label for="projectDateInputField2">Returning</label>
+						<input class="form-control" type="date" value="2017-01-01" id="returnDateB">
+					</div>
+					<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<label for="projectPassengerInputField">Passengers</label>
+						<select class="form-control" id="passNumB">
+					      	<option>1</option>
+					      	<option>2</option>
+					      	<option>3</option>
+					      	<option>4</option>
+					      	<option>5</option>
+	    				</select>
+					</div>
+					<div class="buttonRow col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<button type="submit" class="btn btn-primary" id="goAgain"><strong>GO!</strong></button>
+					</div>
+				</form>
 			</div>
-			
-			<div id="sectionB" class="container-fluid">
-				<div class="page-header">
-					<h2>Search Results</h2>
-					<div class="row">
-						<form>
-							<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<label>Origin</label>
-								<div class="ui-widgetA">
-									<label for="origin-city"></label>
-									<input id="originCityB">
-								</div>
-							</div>
-							<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<label>Destination</label>
-								<div class="ui-widgetB">
-									<label for="destination-city"></label>
-									<input id="destCityB">
-								</div>
-							</div>
-							<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<label for="projectDateInputField1">Departing</label>
-								<input class="form-control" type="date" value="2017-01-01" id="departDateB">
-							</div>
-							<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<label for="projectDateInputField2">Returning</label>
-								<input class="form-control" type="date" value="2017-01-01" id="returnDateB">
-							</div>
-							<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<label for="projectPassengerInputField">Passengers</label>
-								<select class="form-control" id="passNumB">
-							      	<option>1</option>
-							      	<option>2</option>
-							      	<option>3</option>
-							      	<option>4</option>
-							      	<option>5</option>
-			    				</select>
-							</div>
-							<div class="buttonRow col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<button type="submit" class="btn btn-primary" id="goAgain"><strong>GO!</strong></button>
-							</div>
-						</form>
-					</div>
+		</div>
+		<div id="gMap" class="container-fluid">
+			<!-- ready for google maps data -->
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="panel panel-default custom-panel">
+					<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-plane"></span> Flights</strong></div>
+					<table id="flightResults">
+						<!-- ready for js display of html table data -->
+					</table>
 				</div>
-				<div id="gMap" class="container-fluid"></div>
-				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="panel panel-default custom-panel">
-							<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-plane"></span> Flights</strong></div>
-							<table id="flightResults">
-								<tr>
-									<th>Flight #: </th>
-									<td></td>
-								</tr>
-								<tr>
-									<th>Airline: </th>
-									<td></td>
-								</tr>
-								<tr>
-									<th>Departure Date: </th>
-									<td></td>
-								</tr>
-								<tr>
-									<th>Arrival Date: </th>
-									<td></td>
-								</tr>
-								<tr>
-									<th>Cost: </th>
-									<td></td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="panel panel-default custom-panel">
-							<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-flash"></span> Concerts</strong></div>
-							<table id="concertResults">
-								<tr>
-									<th>Artist: </th>
-									<td></td>
-								</tr>
-								<tr>
-									<th>Venue: </th>
-									<td></td>
-								</tr>
-								<tr>
-									<th>Date + Time: </th>
-									<td></td>
-								</tr>
-								<tr>
-									<th>URL: </th>
-									<td></td>
-								</tr>
-							</table>
-						</div>
-					</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="panel panel-default custom-panel">
+					<div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-flash"></span> Concerts</strong></div>
+					<table id="concertResults">
+						<!-- ready for js display of html table data -->
+					</table>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<button type="submit" class="btn btn-primary" id="startOver"><strong>Start Over</strong></button>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
