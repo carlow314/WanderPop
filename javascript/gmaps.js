@@ -1,19 +1,26 @@
 //============================================================================
-// Name        : loadMapAPI
+// Name        : showMaps
 // Author      : Hai Nguyen
 // Version     :
 // Copyright   : 2017
-// Description : This function 
+// Description : This function loads the google maps api and calls loadMaps()
+//               function to display the maps into a given HTML div element.
 //============================================================================
-function loadAPI()
+function showMaps()
 {
-    getConcerts();
-    console.log(conInfo);
     var script = document.createElement("script");
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g&callback=loadMaps";
     script.type = "text/javascript";
     document.getElementsByTagName("head")[0].appendChild(script);
 }
+
+//============================================================================
+// Name        : showMaps
+// Author      : Hai Nguyen
+// Version     :
+// Copyright   : 2017
+// Description : This function displays the maps into a given HTML div element.
+//============================================================================
 function loadMaps() 
 {
     console.log("conInfo: ", conInfo);

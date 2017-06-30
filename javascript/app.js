@@ -69,8 +69,8 @@ $( document ).ready(function() {
     // Keri's validation code goes here!
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show( 500 );
+    getConcerts();
   });
-
   $( "#startOver" ).click(function() {
     $( "#sectionB" ).hide();
     $( "#sectionA" ).show( 500 );

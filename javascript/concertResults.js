@@ -26,9 +26,9 @@ function getConcerts() {
 		var shortenCode = responseObject.events.event;
 		console.log("shortenCode: ", shortenCode);
 		var len = shortenCode.length;
-		var htmlElements = "";
+		var htmlStr = "";
 		//loop through results to pull specific data from each object
-		for (var i=0; i < len; i++){
+		for (var i = 0; i < len; i++) {
 			var evtLoc = {
 				"lat": 0,
 				"lng": 0,
@@ -38,15 +38,15 @@ function getConcerts() {
 			evtLoc.lng = parseFloat(shortenCode[i].longitude);
 			evtLoc.venNm = shortenCode[i].venue_name;
 			conInfo.push(evtLoc);
-			htmlElements += "<div class='row'>" + 
-							"  <p>Artist: " + shortenCode[i].title + "</p>" +
-							"  <p>Venue: " + shortenCode[i].venue_name + "</p>" +
-							"  <p>Date: " + shortenCode[i].start_time + "</p>" +
-							"  <p>URL: " + shortenCode[i].url + "</p>" +
-							"</div>"
+			htmlStr += "<tr>" +
+                  		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].title + "'>" + shortenCode[i].title + "</td>" +
+                  		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].venue_name + "'>" + shortenCode[i].venue_name + "</td>" +
+                  		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].start_time + "'>" + shortenCode[i].start_time + "</td>" +
+                		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].url + "'><a href='" + shortenCode[i].url + "'>" + shortenCode[i].url + "</a></td>" +
+                  		"</tr>";
 		}
-		console.log("conInfo: ", conInfo);
-		$("#concertResults").html(htmlElements);
+		$("#concertResults").html(htmlStr);
+		showMaps();
 	}).fail(function(err) {
     	//console.log(err);
     	throw err;
