@@ -1,6 +1,7 @@
 body {
 	background-image: url("../images/bandPhoto.jpg");
-	background-position: top center;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 .container-fluid {

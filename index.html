@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>WanderPop</title>
+    <title>WanderPop - Get Flights, See Concerts</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -21,84 +21,92 @@
     <script type="text/javascript" src="javascript/gmaps.js"></script>
 </head>
 <body>
+	<!-- begin sectionA -->
     <div id="sectionA" class="container-fluid">
-        <div id="jtronCustom" class="jumbotron text-center">
+        <div class="jumbotron text-center">
             <img class="mainT animated fadeInDown" src="images/WanderPop-Logo-B.png" alt="WanderPop Logo">
             <hr>
             <p class="animated fadeInUp" id="subT"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Get Flights - See Concerts <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></p>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading"><strong><span class="glyphicon glyphicon-plane"></span> When and where are you headed?</strong></div>
-            <form>
-                <div class="form-group">
-                    <label>Origin (city)</label>
-                    <div class="ui-widgetA">
-                        <label for="origin-city"></label>
-                        <input id="originCity" placeholder=" Denver,CO - DEN">
-                    </div>
-                    <label class="customLabel">Destination (city)</label>
-                    <div class="ui-widgetB">
-                        <label for="destination-city"></label>
-                        <input id="destCity" placeholder=" Boston,MA - BOS">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="projectDateInputField1">Date Departing</label>
-                    <input class="form-control" type="date" value="2017-01-01" id="departDate">
-                </div>
-                <div class="form-group">
-                    <label for="projectDateInputField2">Date Returning</label>
-                    <input class="form-control" type="date" value="2017-01-01" id="returnDate">
-                </div>
-                <div class="form-group">
-                    <label for="projectPassengerInputField">Number of Passengers</label>
-                    <select class="form-control" id="passNum">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                    </select>
-                    </div>
-                    <div class="row buttonRow">
-                        <button type="submit" class="btn btn-primary animated bounceInLeft" id="go"><strong>GO!</strong></button>
-                        <div class="eventful-badge eventful-large animated bounceInRight">
-                            <img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
-                            <p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
-                        </div>
-                    </div>        
-                </form>
+	            <div class="panel-body">
+	            <form>
+	                <div class="form-group animated fadeIn">
+	                    <label>Origin (city)</label>
+	                    <div class="ui-widgetA">
+	                        <label for="origin-city"></label>
+	                        <input id="originCity" placeholder=" Denver,CO - DEN">
+	                    </div>
+	                    <label class="customLabel">Destination (city)</label>
+	                    <div class="ui-widgetB">
+	                        <label for="destination-city"></label>
+	                        <input id="destCity" placeholder=" Boston,MA - BOS">
+	                    </div>
+	                </div>
+	                <div class="form-group animated fadeIn">
+	                    <label for="projectDateInputField1">Date Departing</label>
+	                    <input class="form-control" type="date" value="2017-01-01" id="departDate">
+	                </div>
+	                <div class="form-group animated fadeIn">
+	                    <label for="projectDateInputField2">Date Returning</label>
+	                    <input class="form-control" type="date" value="2017-01-01" id="returnDate">
+	                </div>
+	                <div class="form-group animated fadeIn">
+	                    <label for="projectPassengerInputField">Number of Passengers</label>
+	                    <select class="form-control" id="passNum">
+	                            <option>1</option>
+	                            <option>2</option>
+	                            <option>3</option>
+	                            <option>4</option>
+	                            <option>5</option>
+	                    </select>
+	                </div>
+	                <div class="row buttonRow">
+	                    <button type="submit" onclick="loadAPI()" class="btn btn-primary animated bounceInLeft" id="go"><strong>GO!</strong></button>
+	                    <div class="eventful-badge eventful-large animated bounceInRight">
+	                        <img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
+	                        <p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
+	                    </div>
+	                </div>        
+	            </form>
+	            </div>
             </div>
-        </div>        
+        </div>
+    </div> 
+    <!-- End sectionA, begin loadingDiv -->
+	<div id="loadingDiv">
+	</div>
+	<!-- End loadingDiv, begin sectionB -->
     <div id="sectionB" class="container-fluid">
         <div class="page-header">
             <h2 class="">Search Results</h2>
             <div class="row">
                 <form>
-                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
                         <label>Origin</label>
                         <div class="ui-widgetA">
                             <label for="origin-city"></label>
                             <input id="originCityB">
                         </div>
                     </div>
-                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
                         <label>Destination</label>
                         <div class="ui-widgetB">
                             <label for="destination-city"></label>
                             <input id="destCityB">
                         </div>
                     </div>
-                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <label for="projectDateInputField1">Departing</label>
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
+                        <label>Departing</label>
                         <input class="form-control" type="date" value="2017-01-01" id="departDateB">
                     </div>
-                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <label for="projectDateInputField2">Returning</label>
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
+                        <label>Returning</label>
                         <input class="form-control" type="date" value="2017-01-01" id="returnDateB">
                     </div>
-                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <label for="projectPassengerInputField">Passengers</label>
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
+                        <label>Passengers</label>
                         <select class="form-control" id="passNumB">
                             <option>1</option>
                             <option>2</option>
@@ -107,7 +115,7 @@
                             <option>5</option>
                         </select>
                     </div>
-                    <div class="buttonRow col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="buttonRow col-lg-2 col-md-2 col-sm-2 col-xs-2 animated bounceInRight">
                         <button type="submit" class="btn btn-primary" id="goAgain"><strong>GO!</strong></button>
                     </div>
                 </form>
@@ -120,7 +128,7 @@
                 </div> -->
                 <div class="panel panel-default custom-panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Concerts Maps</h3>
+                        <h3 class="panel-title"><strong>Concerts Map</strong></h3>
                     </div>
                     <div id="gMap" class="panel-body">
                         <!--ready for google maps data-->
@@ -129,15 +137,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 animated fadeInUp">
                 <div class="panel panel-default custom-panel">
                     <div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-plane"></span> Flights</strong></div>
-                    <table id="flightResults">
-                        <!-- ready for js display of html table data -->
-                    </table>
+	                <div class="panel-body">
+	                    <table id="flightResults">
+	                        <!-- ready for js display of html table data -->
+	                    </table>
+	                </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 animated fadeInUp">
                 <div class="panel panel-default custom-panel">
                     <div class="panel-heading text-center"><strong><span class="glyphicon glyphicon-flash"></span> Concerts</strong></div>
                     <div class="panel-body">
@@ -145,7 +155,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Artis</th>
+                                        <th>Artist</th>
                                         <th>Venue</th>
                                         <th>Date</th>
                                         <th>URL</th>
@@ -160,7 +170,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated flipInX">
                 <button type="submit" class="btn btn-primary" id="startOver"><strong>Start Over</strong></button>
             </div>
         </div>
