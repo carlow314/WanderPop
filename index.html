@@ -20,6 +20,7 @@
   <script type="text/javascript" src="javascript/concertResults.js"></script>
   <script type="text/javascript" src="javascript/flights.js"></script>
   <script type="text/javascript" src="javascript/gmaps.js"></script>
+  <script type="text/javascript" src="javascript/parsley.js"></script>
 </head>
 
 <body>
@@ -33,31 +34,32 @@
     <div class="panel panel-default">
       <div class="panel-heading"><strong><span class="glyphicon glyphicon-plane"></span> When and where are you headed?</strong></div>
       <div class="panel-body">
-        <form>
+        <form  id="input-form" data-parsley-validate>
           <div class="form-group animated fadeIn">
-            <label>Origin (city)</label>
+            <label>Origin (city)*</label>
             <div class="ui-widgetA">
               <label for="origin-city"></label>
-              <input id="originCity" placeholder=" Denver,CO - DEN">
+              <input id="originCity" placeholder=" Origin City" required="">
             </div>
-            <label class="customLabel">Destination (city)</label>
+            <label class="customLabel">Destination (city)*</label>
             <div class="ui-widgetB">
               <label for="destination-city"></label>
-              <input id="destCity" placeholder=" Boston,MA - BOS">
+              <input id="destCity" placeholder=" Destination City" required="">
             </div>
           </div>
           <div class="form-group animated fadeIn">
-            <label for="projectDateInputField1">Date Departing</label>
-            <input class="form-control" type="date" value="2017-01-01" id="departDate">
+            <label for="projectDateInputField1">Date Departing*</label>
+            <input class="form-control" type="date" value="" id="departDate" required="">
           </div>
           <div class="form-group animated fadeIn">
-            <label for="projectDateInputField2">Date Returning</label>
-            <input class="form-control" type="date" value="2017-01-01" id="returnDate">
+            <label for="projectDateInputField2">Date Returning*</label>
+            <input class="form-control" type="date" value="" id="returnDate" required="">
           </div>
           <div class="form-group animated fadeIn">
-            <label for="projectPassengerInputField">Number of Passengers</label>
-            <select class="form-control" id="passNum">
-	                            <option>1</option>
+            <label for="projectPassengerInputField">Number of Passengers*</label>
+            <select class="form-control" id="passNum" required="">
+	                            <option>-</option>
+                              <option>1</option>
 	                            <option>2</option>
 	                            <option>3</option>
 	                            <option>4</option>
