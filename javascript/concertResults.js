@@ -11,7 +11,7 @@ var returnDate = $("#returnDate").val();
 var conInfo = [];
 
 function getConcerts() {
-	
+
 	var destCity = $("#destCity").val();
 	var departDate = $("#departDate").val();
 	var returnDate = $("#returnDate").val();
@@ -52,7 +52,7 @@ function getConcerts() {
 			htmlStr += "<tr>" +
                   		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].title + "'>" + shortenCode[i].title + "</td>" +
                   		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].venue_name + "'>" + shortenCode[i].venue_name + "</td>" +
-                  		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].start_time + "'>" + shortenCode[i].start_time + "</td>" +
+                  		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].start_time + "'>" + moment(shortenCode[i].start_time).format("MMMM Do YYYY, h:mm a") + "</td>" +
                 		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].url + "'><a href='" + shortenCode[i].url + "'>" + shortenCode[i].url + "</a></td>" +
                   		"</tr>";
 		}
