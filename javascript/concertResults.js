@@ -4,10 +4,6 @@
 //Venue 			id=venue
 //date&time 		id=rConDateTime
 //SongKick URI Btn	id=rURI
-
-var destCity = $("#destCity").val();
-var departDate = $("#departDate").val();
-var returnDate = $("#returnDate").val();
 var conInfo = [];
 
 function getConcerts() {
