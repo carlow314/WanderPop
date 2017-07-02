@@ -25,53 +25,56 @@
 
 <body>
   <!-- begin sectionA -->
-  <div id="sectionA" class="container-fluid">
-    <div class="jumbotron text-center">
-      <img class="mainT animated fadeInDown" src="images/WanderPop-Logo-B.png" alt="WanderPop Logo">
-      <hr>
-      <p class="animated fadeInUp" id="subT"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Get Flights - See Concerts <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></p>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong><span class="glyphicon glyphicon-plane"></span> When and where are you headed?</strong></div>
-      <div class="panel-body">
-        <form  id="input-form" data-parsley-validate>
-          <div class="form-group animated fadeIn">
-            <label>Origin (city)*</label>
-            <div class="ui-widgetA">
-              <label for="origin-city"></label>
-              <input id="originCity" placeholder=" Origin City" required="">
-            </div>
-            <label class="customLabel">Destination (city)*</label>
-            <div class="ui-widgetB">
-              <label for="destination-city"></label>
-              <input id="destCity" placeholder=" Destination City" required="">
-            </div>
-          </div>
-          <div class="form-group animated fadeIn">
-            <label for="projectDateInputField1">Date Departing*</label>
-            <input class="form-control" type="date" value="" id="departDate" required="">
-          </div>
-          <div class="form-group animated fadeIn">
-            <label for="projectDateInputField2">Date Returning*</label>
-            <input class="form-control" type="date" value="" id="returnDate" required="">
-          </div>
-          <div class="form-group animated fadeIn">
-            <label for="projectPassengerInputField">Number of Passengers*</label>
-            <select class="form-control" id="passNum" required="">
-	                            <option>-</option>
-                              <option>1</option>
-	                            <option>2</option>
-	                            <option>3</option>
-	                            <option>4</option>
-	                            <option>5</option>
-	                    </select>
-          </div>
-          <div class="row buttonRow">
-            <button type="submit" class="btn btn-primary animated bounceInLeft" id="go"><strong>GO!</strong></button>
-            <div class="eventful-badge eventful-large animated bounceInRight">
-              <img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
-              <p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
-            </div>
+  	<div id="sectionA" class="container-fluid">
+    	<div class="jumbotron text-center">
+      		<img class="mainT animated fadeInDown" src="images/WanderPop-Logo-B.png" alt="WanderPop Logo">
+      		<hr>
+      		<p class="animated fadeInUp" id="subT"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Get Flights - See Concerts <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></p>
+    	</div>
+    	<div class="panel panel-default">
+      		<div class="panel-heading"><strong><span class="glyphicon glyphicon-plane"></span> When and where are you headed?</strong> (required info *)</div>
+      		<div class="panel-body">
+        		<form  id="input-form" data-parsley-validate>
+          		<div class="form-group animated fadeIn">
+            			<label>Origin (city)*</label>
+	            	<div class="ui-widgetA">
+	              		<label for="origin-city"></label>
+	              		<input id="originCity" placeholder=" Origin City" required="">
+	            	</div>
+	            		<label class="customLabel">Destination (city)*</label>
+	            	<div class="ui-widgetB">
+	              		<label for="destination-city"></label>
+	              		<input id="destCity" placeholder=" Destination City" required="">
+	            	</div>
+          		</div>
+	          	<div class="form-group animated fadeIn">
+		            <label for="projectDateInputField1">Date Departing*</label>
+		            <input class="form-control" type="date" value="" id="departDate" required="">
+		        </div>
+	          	<div class="form-group animated fadeIn">
+		            <label for="projectDateInputField2">Date Returning*</label>
+		            <input class="form-control" type="date" value="" id="returnDate" required="">
+	          	</div>
+	          	<div class="form-group animated fadeIn">
+	            	<label for="projectPassengerInputField">Number of Passengers*</label>
+	            	<select class="form-control" id="passNum" required="">
+		                <option>-</option>
+		              	<option>1</option>
+		                <option>2</option>
+		                <option>3</option>
+		                <option>4</option>
+		                <option>5</option>
+		        	</select>
+          		</div>
+	          	<div class="row buttonRow">
+	            	<button type="submit" class="btn btn-primary animated bounceInLeft" id="go"><strong>GO!</strong></button>
+		            <div class="eventful-badge eventful-large animated bounceInRight">
+			            <img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
+			            <p class="eventfulText"><a href="http://eventful.com/">Events</a> by Eventful</p>
+		            </div>
+	        	</div>
+        		</form>
+        	</div>
         </div>
     </div> 
     <!-- End sectionA, begin loadingDiv -->
