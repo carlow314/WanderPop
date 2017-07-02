@@ -4,11 +4,10 @@
 //Venue 			id=venue
 //date&time 		id=rConDateTime
 //SongKick URI Btn	id=rURI
-
 var conInfo = [];
 
 function getConcerts() {
-	
+
 	var destCity = $("#destCity").val();
 	var departDate = $("#departDate").val();
 	var returnDate = $("#returnDate").val();
@@ -20,7 +19,15 @@ function getConcerts() {
 	$.ajax({
 		url: queryURL,
 		method: "GET"
-	}).done(function(response){
+	})
+	//What to run after data is received
+	.done(function(response){
+		var obj =
+		{
+			"lat": 0,
+			"lng": 0,
+			"venueName": ""
+		};
 		console.log(response);
 		var responseObject = JSON.parse(response);
 		var shortenCode = responseObject.events.event;
@@ -41,7 +48,7 @@ function getConcerts() {
 			htmlStr += "<tr>" +
                   		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].title + "'>" + shortenCode[i].title + "</td>" +
                   		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].venue_name + "'>" + shortenCode[i].venue_name + "</td>" +
-                  		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].start_time + "'>" + shortenCode[i].start_time + "</td>" +
+                  		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].start_time + "'>" + moment(shortenCode[i].start_time).format("MMMM Do YYYY, h:mm a") + "</td>" +
                 		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].url + "'><a href='" + shortenCode[i].url + "'>" + shortenCode[i].url + "</a></td>" +
                   		"</tr>";
 		}
@@ -52,5 +59,3 @@ function getConcerts() {
     	throw err;
     });;
 }
-
-
