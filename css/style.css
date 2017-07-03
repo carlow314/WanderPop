@@ -1,8 +1,12 @@
+/*general CSS*/
+
 body {
 	background-image: url("../images/bandPhoto.jpg");
 	background-position: center;
 	background-attachment: fixed;
 }
+
+/*begin sectionA CSS*/
 
 .container-fluid {
 	margin: 10px 40px;
@@ -119,6 +123,8 @@ button {
 	margin:0;
 }
 
+/*end sectionA CSS, begin loadingDiv CSS*/
+
 .centered {
   position: fixed;
   top: 50%;
@@ -126,6 +132,8 @@ button {
   transform: translate(-50%, -50%);
   width: 200px;
 }
+
+/*end loadingDiv CSS, begin sectionB CSS*/
 
 .page-header {
 	background-color: rgba(1, 80, 183, .8);
@@ -183,3 +191,4 @@ table {
 #startOver:hover {
 	background-color: rgba(1, 80, 183, .8);
 }
+/*end sectionB CSS*/
