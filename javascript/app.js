@@ -65,6 +65,15 @@ $( document ).ready(function() {
         source: availableTags
       });
     } );
+  
+  $( "#goAgain" ).click(function() {
+    // Keri's validation code goes here!
+    $( "#sectionA" ).hide();
+    $( "#sectionB" ).show();
+    getFlights();
+    getConcerts();
+  });
+
   $( "#go" ).click(function() {
     // Keri's validation code goes here!
     $( "#sectionA" ).hide();
