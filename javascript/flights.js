@@ -13,7 +13,7 @@ function getFlights()
   var returnDate = $("#returnDate").val();
   var originAirportCode = getAirportCode(originCity);
   var destAirportCode = getAirportCode(destCity);
-  var FlightRequest = 
+  var FlightRequest =
   {
     "request": {
       "passengers": {
@@ -58,6 +58,10 @@ function getFlights()
         var currentRoundTrip = roundtripData[i];
         var outboundLeg = currentRoundTrip[0];
         var inboundLeg = currentRoundTrip[1];
+        var outboundFlightNumber = outboundLeg.segment[0].flight.number;
+        var inboundFlightNumber = inboundLeg.segment[0].flight.number;
+        var outboundAirline = outboundLeg.segment[0].flight.carrier;
+        var inboundAirline = inboundLeg.segment[0].flight.carrier;
         var outboundLegInfo = outboundLeg.segment[0].leg[0];
         var outboundLegDestination = outboundLegInfo.destination;
         var outboundLegOrigin = outboundLegInfo.origin;
@@ -73,13 +77,17 @@ function getFlights()
             destination: outboundLegDestination,
             origin: outboundLegOrigin,
             arrival: outboundLegArrival,
-            departure: outboundLegDeparture
+            departure: outboundLegDeparture,
+            flightNumber: outboundFlightNumber,
+            airline: outboundAirline
           },
           inboundLeg: {
             destination: inboundLegDestination,
             origin: inboundLegOrigin,
             arrival: inboundLegArrival,
-            departure: inboundLegDeparture
+            departure: inboundLegDeparture,
+            flightNumber: inboundFlightNumber,
+            airline: inboundAirline
           }
         };
         conciseRoundTripData.push(conciseRoundTrip);
@@ -94,6 +102,8 @@ function getFlights()
       for (var i = 0; i < conciseRoundTripData.length; i++)
       {
         htmlStr1 += "<tr>" +
+                      " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.airline + "'>" + conciseRoundTripData[i].outboundLeg.airline + "</td>" +
+                      " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.flightNumber + "'>" + conciseRoundTripData[i].outboundLeg.flightNumber + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.origin + "'>" + conciseRoundTripData[i].outboundLeg.origin + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.destination + "'>" + conciseRoundTripData[i].outboundLeg.destination + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.departure + "'>" + moment(conciseRoundTripData[i].outboundLeg.departure).format("MMMM Do YYYY, h:mm a") + "</td>" +
@@ -103,6 +113,8 @@ function getFlights()
                       " <td id='row" + (i+1) + "' data-name='" + saleTotals[i] + "'>" + saleTotals[i] + "</td>" +
                     "</tr>";
         htmlStr2 += "<tr>" +
+                      " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].inboundLeg.airline + "'>" + conciseRoundTripData[i].inboundLeg.airline + "</td>" +
+                      " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].inboundLeg.flightNumber + "'>" + conciseRoundTripData[i].inboundLeg.flightNumber + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].inboundLeg.origin + "'>" + conciseRoundTripData[i].inboundLeg.origin + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].inboundLeg.destination + "'>" + conciseRoundTripData[i].inboundLeg.destination + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].inboundLeg.departure + "'>" + moment(conciseRoundTripData[i].inboundLeg.departure).format("MMMM Do YYYY, h:mm a") + "</td>" +

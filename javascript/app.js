@@ -1,6 +1,6 @@
 $( document ).ready(function() {
-  
-  $( "#sectionB" ).hide();  
+
+  $( "#sectionB" ).hide();
 
   $( function() {
       var availableTags = [
@@ -65,7 +65,7 @@ $( document ).ready(function() {
         source: availableTags
       });
     } );
-  
+
   $( "#goAgain" ).click(function() {
     // Keri's validation code goes here!
     $( "#sectionA" ).hide();
@@ -92,7 +92,7 @@ $( document ).ready(function() {
       $( "#sectionA" ).hide();
       $( "#sectionB" ).show( 500 );
       getFlights();
-      getConcerts();      
+      getConcerts();
     }
   });
 
