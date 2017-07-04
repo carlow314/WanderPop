@@ -49,7 +49,7 @@ function getConcerts() {
                   		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].title + "'>" + shortenCode[i].title + "</td>" +
                   		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].venue_name + "'>" + shortenCode[i].venue_name + "</td>" +
                   		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].start_time + "'>" + moment(shortenCode[i].start_time).format("MMMM Do YYYY, h:mm a") + "</td>" +
-                		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].url + "'><a href='" + shortenCode[i].url + "'>" + shortenCode[i].url + "</a></td>" +
+                		" <td id='row" + (i+1) + "' data-name='" + shortenCode[i].url + "'><a href='" + shortenCode[i].url + "' target='_blank'>" + shortenCode[i].url + "</a></td>" +
                   		"</tr>";
 		}
 		$("#concertResults").html(htmlStr);
