@@ -78,22 +78,22 @@ $( document ).ready(function() {
     //Data Validation
     if (originCity == null) {
       //code for modal
-    };
+    }
     else if (destCity == null) {
       //code for modal
-    };
+    }
     else if (departDate >= moment()){
       //code for modal
-    };
+    }
     else if (returnDate >= departDate){
       //code for modal
-    };
+    }
     else {
       $( "#sectionA" ).hide();
       $( "#sectionB" ).show( 500 );
       getFlights();
       getConcerts();      
-    };
+    }
   });
 
   $( "#startOver" ).click(function() {
