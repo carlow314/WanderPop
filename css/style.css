@@ -172,9 +172,6 @@ input {
 
 .custom-panel {
 	color: white;
-	/*margin: 0 15px;
-	padding-right: 0;
-	padding-left: 0;*/
 }
 
 table {
@@ -191,4 +188,17 @@ table {
 #startOver:hover {
 	background-color: rgba(1, 80, 183, .8);
 }
-/*end sectionB CSS*/
+/*end sectionB CSS, begin footer*/
+
+footer {
+	margin: 0 15px;
+}
+
+.customFooter {
+	color: lightgrey;
+	background-color: rgba(22, 22, 22, .5);
+	border-radius: 4px;
+	padding-bottom: 10px;
+	margin-top: -20px;
+	margin-bottom: -10px;
+}
