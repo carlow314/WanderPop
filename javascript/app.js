@@ -2,15 +2,11 @@
 
 function displayFlightsConcerts()
 { 
-  var currentDate = moment();
-  var currDDT = moment.unix(currentDate);
   var originCity = $("#originCity").val();
   var destCity = $("#destCity").val();
   var noOfPeople = $("#passNum").val();
   var departDate = $("#departDate").val();
   var returnDate = $("#returnDate").val();
-  var departDDT = moment.unix(departDate);
-  var returnDDT = moment.unix(returnDate);
   var htmlStr = "";
   var displayErrorMsg = false;
   //Data Validation
@@ -42,6 +38,47 @@ function displayFlightsConcerts()
     $( "#sectionB" ).show( 500 );
     getFlights();
     getConcerts();
+  }
+}
+
+function displayFlightsConcertsAgain()
+{ 
+  var originCity = $("#originCityB").val();
+  var destCity = $("#destCityB").val();
+  var noOfPeople = $("#passNumB").val();
+  var departDate = $("#departDateB").val();
+  var returnDate = $("#returnDateB").val();
+  var htmlStr = "";
+  var displayErrorMsg = false;
+  //Data Validation
+  if (originCity === "") {
+    //code for modal
+    htmlStr += "<h4>. Please enter an Origin city</h4>";
+    displayErrorMsg = true;
+  }
+  if (destCity === "") {
+    //code for modal
+    htmlStr += "<h4>. Please enter a Destination city<h4>";
+    displayErrorMsg = true;
+  }
+  if (departDate === "") {
+    //code for modal
+    htmlStr += "<h4>. Please enter a Depart date</h4>";
+    displayErrorMsg = true;
+  }
+  if (returnDate === "") {
+    //code for modal
+    htmlStr += "<h4>. Please enter a Return date</h4>";
+    displayErrorMsg = true;
+  }
+  if (displayErrorMsg === true) {
+    $("#errorMessage").html(htmlStr);
+  }
+  else {
+    $( "#sectionA" ).hide();
+    $( "#sectionB" ).show( 500 );
+    getFlightsAgain();
+    getConcertsAgain();
   }
 }
 $( document ).ready(function() {
@@ -120,7 +157,7 @@ $("#returnDate").keypress(function (event){
     } );
 
   $( "#goAgain" ).click(function() {
-    displayFlightsConcerts();
+    displayFlightsConcertsAgain();
   });
 
   $( "#go" ).click(function() {
