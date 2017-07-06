@@ -194,6 +194,13 @@ footer {
 	margin: 0 15px;
 }
 
+#errorMessage
+{
+	background-color: yellow;
+	width: 98%;
+	margin-left: 1%;
+}
+
 .customFooter {
 	color: lightgrey;
 	background-color: rgba(22, 22, 22, .5);
