@@ -126,6 +126,10 @@ button {
   margin: 0;
 }
 
+.eText {
+	color: blue;
+}
+
 
 /*end sectionA CSS, begin loadingDiv CSS*/
 
@@ -183,11 +187,16 @@ table {
   margin: 10px;
 }
 
+a {
+	color: aquamarine;
+}
+
 #startOver {
   height: 34px;
   width: 100%;
   background-color: rgba(71, 171, 21, 1);
   border-color: #ddd;
+  margin-bottom: 35px;
 }
 
 #startOver:hover {
