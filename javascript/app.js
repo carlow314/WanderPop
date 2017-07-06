@@ -75,18 +75,42 @@ $( document ).ready(function() {
   });
 
   $( "#go" ).click(function() {
+    var currentDate = moment();
+    var currDDT = moment.unix(currentDate);
+    var originCity = $("#originCity").val();
+    var destCity = $("#destCity").val();
+    var noOfPeople = $("#passNum").val();
+    var departDate = $("#departDate").val();
+    var returnDate = $("#returnDate").val();
+    var departDDT = moment.unix(departDate);
+    var returnDDT = moment.unix(returnDate);
+    var htmlStr = "<ul>";
+    var displayErrorMsg = false;
     //Data Validation
-    if (originCity == null) {
+    if (originCity === "") {
       //code for modal
+      htmlStr += "<li>Please enter an Origin city.</li>";
+      displayErrorMsg = true;
     }
-    else if (destCity == null) {
+    if (destCity === "") {
       //code for modal
+      htmlStr += "<li>Please enter a Destination city.</li>";
+      displayErrorMsg = true;
     }
-    else if (departDate >= moment()){
+    if (departDate === "") {
       //code for modal
+      htmlStr += "<li>Please enter a Depart date.</li>";
+      displayErrorMsg = true;
     }
-    else if (returnDate >= departDate){
+    if (returnDate === "") {
       //code for modal
+      htmlStr += "<li>Please enter a Return date.</li>";
+      displayErrorMsg = true;
+    }
+    if (displayErrorMsg === true)
+    {
+      htmlStr += "</ul>";
+      $("#errorMessage").html(htmlStr);
     }
     else {
       $( "#sectionA" ).hide();
