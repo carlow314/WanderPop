@@ -12,6 +12,7 @@ function showMaps()
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0B6uzuNB9zlLaa2urYpBN6Vdgb5BmL7g&callback=loadMaps";
     script.type = "text/javascript";
     document.getElementsByTagName("head")[0].appendChild(script);
+    window.google = {}; //attempt to fix Google Maps API multiple times error 
 }
 
 //============================================================================

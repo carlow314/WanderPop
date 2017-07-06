@@ -80,6 +80,7 @@ function getConcertsAgain() {
 	console.log("EventFul URL: " + queryBaseURL);
 	var herokuURL = "https://cors-anywhere.herokuapp.com/";
 	var queryURL = herokuURL + queryBaseURL;
+	console.log("Query URL: " + queryURL);
 
 	//AJAX call - GET
 	$.ajax({

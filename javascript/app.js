@@ -1,12 +1,15 @@
 
-
 function displayFlightsConcerts()
 { 
+  var departDDT;
+  var returnDDT;
   var originCity = $("#originCity").val();
   var destCity = $("#destCity").val();
   var noOfPeople = $("#passNum").val();
   var departDate = $("#departDate").val();
   var returnDate = $("#returnDate").val();
+  
+  //console.log(returnDateDDT._i);
   var htmlStr = "";
   var displayErrorMsg = false;
   //Data Validation
@@ -25,9 +28,20 @@ function displayFlightsConcerts()
     htmlStr += "<h4>. Please enter a Depart date</h4>";
     displayErrorMsg = true;
   }
+  else {
+    departDDT = moment(departDate).unix();
+  }
   if (returnDate === "") {
     //code for modal
     htmlStr += "<h4>. Please enter a Return date</h4>";
+    displayErrorMsg = true;
+  }
+  else {
+    returnDDT = moment(returnDate).unix();
+  }
+  if (departDDT >= returnDDT)
+  {
+    htmlStr += "<h4>. Invalid Depart date</h4>";
     displayErrorMsg = true;
   }
   if (displayErrorMsg === true) {
@@ -43,6 +57,8 @@ function displayFlightsConcerts()
 
 function displayFlightsConcertsAgain()
 { 
+  var departDDT;
+  var returnDDT;
   var originCity = $("#originCityB").val();
   var destCity = $("#destCityB").val();
   var noOfPeople = $("#passNumB").val();
@@ -66,13 +82,24 @@ function displayFlightsConcertsAgain()
     htmlStr += "<h4>. Please enter a Depart date</h4>";
     displayErrorMsg = true;
   }
+  else {
+    departDDT = moment(departDate).unix();
+  }
   if (returnDate === "") {
     //code for modal
     htmlStr += "<h4>. Please enter a Return date</h4>";
     displayErrorMsg = true;
   }
+  else {
+    returnDDT = moment(returnDate).unix();
+  }
+  if (departDDT >= returnDDT)
+  {
+    htmlStr += "<h4>. Invalid Depart date</h4>";
+    displayErrorMsg = true;
+  }
   if (displayErrorMsg === true) {
-    $("#errorMessage").html(htmlStr);
+    $("#errorMessageGoAgain").html(htmlStr);
   }
   else {
     $( "#sectionA" ).hide();
@@ -159,7 +186,7 @@ $( document ).ready(function() {
   });
 
   $( "#goAgain" ).click(function() {
-    //displayFlightsConcertsAgain();
+    displayFlightsConcertsAgain();
   });
 
   $( "#go" ).click(function() {

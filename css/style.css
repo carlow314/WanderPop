@@ -201,7 +201,7 @@ footer {
   margin: 0 15px;
 }
 
-#errorMessage {
+#errorMessage, #errorMessageGoAgain {
   background-color: yellow;
   width: 98%;
   margin-left: 1%;
