@@ -194,6 +194,7 @@ a {
 	width: 100%;
 	background-color: rgba(71,171,21, 1);
 	border-color: #ddd;
+	margin-bottom: 30px;
 }
 
 #startOver:hover {
