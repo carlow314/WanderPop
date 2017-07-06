@@ -81,83 +81,85 @@ function displayFlightsConcertsAgain()
     getConcertsAgain();
   }
 }
-$( document ).ready(function() {
-$( "#departDate" ).datepicker({ minDate: 0});
-$("#departDate").keypress(function (event){
-  event.preventDefault();
-  $("#departDateMessage").css("visibility", "visible");
-});
 
-$( "#returnDate" ).datepicker({ minDate: 0});
-$("#returnDate").keypress(function (event){
-  event.preventDefault();
-  $("#returnDateMessage").css("visibility", "visible");
-});
+$( document ).ready(function() {
+
+  $("#departDate").datepicker({ minDate: 0});
+  $("#departDate").keypress(function (event) {
+    event.preventDefault();
+    $("#departDateMessage").css("visibility", "visible");
+  });
+
+  $( "#returnDate" ).datepicker({ minDate: 0});
+  $("#returnDate").keypress(function (event){
+    event.preventDefault();
+    $("#returnDateMessage").css("visibility", "visible");
+  });
 
   $( "#sectionB" ).hide();
 
   $( function() {
-      var availableTags = [
-        { label: "Denver, CO - DEN", category: "DEN" },
-        { label: "Austin, TX - AUS", category: "AUS" },
-        { label: "New York City, NY - JFK", category: "JFK" },
-        { label: "Los Angeles, CA - LAX", category: "LAX" },
-        { label: "Chicago, IL - ORD", category: "ORD" },
-        { label: "Baltimore, MD - BWI", category: "BWI" },
-        { label: "Boston, MA - BOS", category: "BOS" },
-      ];
-      $( "#originCity" ).autocomplete({
-        source: availableTags
-      });
-    } );
+    var availableTags = [
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX", category: "LAX" },
+      { label: "Chicago, IL - ORD", category: "ORD" },
+      { label: "Baltimore, MD - BWI", category: "BWI" },
+      { label: "Boston, MA - BOS", category: "BOS" }
+    ];
+    $( "#originCity" ).autocomplete({
+      source: availableTags
+    });
+  });
 
   $( function() {
-      var availableTags = [
-        { label: "Denver, CO - DEN", category: "DEN" },
-        { label: "Austin, TX - AUS", category: "AUS" },
-        { label: "New York City, NY - JFK", category: "JFK" },
-        { label: "Los Angeles, CA - LAX ", category: "LAX" },
-        { label: "Chicago, IL - ORD", category: "ORD" },
-        { label: "Baltimore, MD - BWI", category: "BWI" },
-        { label: "Boston, MA - BOS", category: "BOS" },
-      ];
-      $( "#destCity" ).autocomplete({
-        source: availableTags
-      });
-    } );
+    var availableTags = [
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX ", category: "LAX" },
+      { label: "Chicago, IL - ORD", category: "ORD" },
+      { label: "Baltimore, MD - BWI", category: "BWI" },
+      { label: "Boston, MA - BOS", category: "BOS" }
+    ];
+    $( "#destCity" ).autocomplete({
+      source: availableTags
+    });
+  });
 
   $( function() {
-      var availableTags = [
-        { label: "Denver, CO - DEN", category: "DEN" },
-        { label: "Austin, TX - AUS", category: "AUS" },
-        { label: "New York City, NY - JFK", category: "JFK" },
-        { label: "Los Angeles, CA - LAX", category: "LAX" },
-        { label: "Chicago, IL - ORD", category: "ORD" },
-        { label: "Baltimore, MD -BWI", category: "BWI" },
-        { label: "Boston, MA - BOS", category: "BOS" },
-      ];
-      $( "#originCityB" ).autocomplete({
-        source: availableTags
-      });
-    } );
+    var availableTags = [
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX", category: "LAX" },
+      { label: "Chicago, IL - ORD", category: "ORD" },
+      { label: "Baltimore, MD - BWI", category: "BWI" },
+      { label: "Boston, MA - BOS", category: "BOS" }
+    ];
+    $( "#originCityB" ).autocomplete({
+      source: availableTags
+    });
+  });
 
   $( function() {
-      var availableTags = [
-        { label: "Denver, CO - DEN", category: "DEN" },
-        { label: "Austin, TX - AUS", category: "AUS" },
-        { label: "New York City, NY - JFK", category: "JFK" },
-        { label: "Los Angeles, CA - LAX", category: "LAX" },
-        { label: "Chicago, IL -ORD", category: "ORD" },
-        { label: "Baltimore, MD - BWI", category: "BWI" },
-        { label: "Boston, MA -BOS", category: "BOS" },
-      ];
-      $( "#destCityB" ).autocomplete({
-        source: availableTags
-      });
-    } );
+    var availableTags = [
+      { label: "Denver, CO - DEN", category: "DEN" },
+      { label: "Austin, TX - AUS", category: "AUS" },
+      { label: "New York City, NY - JFK", category: "JFK" },
+      { label: "Los Angeles, CA - LAX", category: "LAX" },
+      { label: "Chicago, IL - ORD", category: "ORD" },
+      { label: "Baltimore, MD - BWI", category: "BWI" },
+      { label: "Boston, MA - BOS", category: "BOS" }
+    ];
+    $( "#destCityB" ).autocomplete({
+      source: availableTags
+    });
+  });
 
   $( "#goAgain" ).click(function() {
-    displayFlightsConcertsAgain();
+    //displayFlightsConcertsAgain();
   });
 
   $( "#go" ).click(function() {
