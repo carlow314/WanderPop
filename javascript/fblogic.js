@@ -10,14 +10,14 @@ function initializeFb()
 {
   console.log("Enter initializeFb()")
   // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyB91cGgjabADUEJNvLV4L77vppyU7kmF7o",
-      authDomain: "wanderpop-b6f0c.firebaseapp.com",
-      databaseURL: "https://wanderpop-b6f0c.firebaseio.com",
-      projectId: "wanderpop-b6f0c",
-      storageBucket: "",
-      messagingSenderId: "717284626993"
-        };
+  var config = {
+     apiKey: "AIzaSyD1Ce-ZRNUn2KxC1R9K83ZDuPT1e3FhzgE",
+     authDomain: "wanderpop-b6f0c.firebaseapp.com",
+     databaseURL: "https://wanderpop-b6f0c.firebaseio.com",
+     projectId: "wanderpop-b6f0c",
+     storageBucket: "wanderpop-b6f0c.appspot.com",
+     messagingSenderId: "717284626993"
+   };
   firebase.initializeApp(config);
   database = firebase.database();
   console.log("Exit initializeFb()");
