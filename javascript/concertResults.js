@@ -12,8 +12,10 @@ function getConcerts() {
 	var departDate = $("#departDate").val();
 	var returnDate = $("#returnDate").val();
 	//eventful API to specify what date range and location to call with number of responses
-	var queryURL = "https://api.eventful.com/json/events/search?keywords=music&location=" + destCity + "&app_key=zNJJLppf9t878VGw&date=" + departDate + "-" + returnDate + "&within=10&units=miles";
-	console.log("EventFul URL: " + queryURL);
+	var queryBaseURL = "https://api.eventful.com/json/events/search?keywords=music&location=" + destCity + "&app_key=zNJJLppf9t878VGw&date=" + departDate + "-" + returnDate + "&within=10&units=miles";
+	console.log("EventFul URL: " + queryBaseURL);
+	var herokuURL = "https://cors-anywhere.herokuapp.com/";
+	var queryURL = herokuURL + queryBaseURL;
 
 	//AJAX call - GET
 	$.ajax({
