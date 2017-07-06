@@ -4,6 +4,19 @@ function getAirportCode(city)
   return city.substring(index+2, city.length);
 }
 
+function getAirlineName(carrierCode,carrierArray){
+  var name;
+  console.log("carrier code:",carrierCode);
+  for (var i = 0; i < carrierArray.length; i += 1) {
+ var code = carrierArray[i].code;
+ if(carrierCode === code){
+   name = carrierArray[i].name
+ }
+      console.log("carrier code:",carrierCode);
+      console.log("carrier array :",carrierArray[i]);
+    }
+    return name;
+}
 function getFlights()
 {
   var originCity = $("#originCity").val();
@@ -72,6 +85,8 @@ function getFlights()
         var outboundLegArrival = outboundLegInfo.arrivalTime;
         var inboundLegDeparture = inboundLegInfo.departureTime;
         var inboundLegArrival = inboundLegInfo.arrivalTime;
+        var outboundAirlineName = getAirlineName(outboundAirline,response.trips.data.carrier);
+        var inboundAirlineName = getAirlineName(inboundAirline,response.trips.data.carrier);
         var conciseRoundTrip = {
           outboundLeg: {
             destination: outboundLegDestination,
@@ -79,7 +94,7 @@ function getFlights()
             arrival: outboundLegArrival,
             departure: outboundLegDeparture,
             flightNumber: outboundFlightNumber,
-            airline: outboundAirline
+            airline: outboundAirlineName
           },
           inboundLeg: {
             destination: inboundLegDestination,
@@ -87,12 +102,13 @@ function getFlights()
             arrival: inboundLegArrival,
             departure: inboundLegDeparture,
             flightNumber: inboundFlightNumber,
-            airline: inboundAirline
+            airline: inboundAirlineName
           }
         };
         conciseRoundTripData.push(conciseRoundTrip);
       }
       console.log(conciseRoundTripData);
+
   // console.log("Your first leg leaves at:",moment(legOneDepartTime).format("MMMM Do YYYY, h:mm a"));
   // console.log("Your first leg arrives at:",moment(legOneArrivalTime).format("MMMM Do YYYY, h:mm a"));
   // console.log("Your second leg leaves at:",moment(legTwoDepartTime).format("MMMM Do YYYY, h:mm"));
@@ -102,7 +118,7 @@ function getFlights()
       for (var i = 0; i < conciseRoundTripData.length; i++)
       {
         htmlStr1 += "<tr>" +
-                      " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.airline + "'>" + conciseRoundTripData[i].outboundLeg.airline + "</td>" +
+                      " <td id='row" + (i+1) + "' data-name='" + outboundAirlineName[i] + "'>" + conciseRoundTripData[i].outboundLeg.airline + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.flightNumber + "'>" + conciseRoundTripData[i].outboundLeg.flightNumber + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.origin + "'>" + conciseRoundTripData[i].outboundLeg.origin + "</td>" +
                       " <td id='row" + (i+1) + "' data-name='" + conciseRoundTripData[i].outboundLeg.destination + "'>" + conciseRoundTripData[i].outboundLeg.destination + "</td>" +
