@@ -123,6 +123,9 @@ button {
 	margin:0;
 }
 
+.eText {
+	color: blue;
+}
 /*end sectionA CSS, begin loadingDiv CSS*/
 
 .centered {
@@ -158,6 +161,10 @@ input {
 	height: 300px;
 }
 
+.table-responsive {
+	overflow-x: hidden;
+}
+
 #goAgain {
 	height: 34px;
 	width: 100%;
@@ -176,6 +183,10 @@ input {
 
 table {
 	margin: 10px;
+}
+
+a {
+	color: aquamarine;
 }
 
 #startOver {
