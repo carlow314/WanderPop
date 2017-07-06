@@ -187,6 +187,10 @@ table {
   margin: 10px;
 }
 
+.table-responsive {
+	overflow-x: hidden;
+}
+
 a {
 	color: aquamarine;
 }
