@@ -16,6 +16,12 @@
   <!-- Firebase Reference -->
   <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
   <script type="text/javascript" src="javascript/app.js"></script>
   <script type="text/javascript" src="javascript/fblogic.js"></script>
   <script type="text/javascript" src="javascript/concertResults.js"></script>
@@ -52,12 +58,12 @@
             </div>
           </div>
           <div class="form-group animated fadeIn">
-            <label for="projectDateInputField1">Date Departing*</label>
-            <input class="form-control" type="date" value="" id="departDate" required="">
+            <label for="projectDateInputField1">Date Departing*  <span id="departDateMessage" style="color:#FF0000;visibility: hidden;">Please use the date picker to select your date.</span></label>
+            <input type="text" id="departDate">
           </div>
           <div class="form-group animated fadeIn">
-            <label for="projectDateInputField2">Date Returning*</label>
-            <input class="form-control" type="date" value="" id="returnDate" required="">
+            <label for="projectDateInputField2">Date Returning*  <span id="returnDateMessage" style="color:#FF0000;visibility: hidden;">Please use the date picker to select your date.</span></label>
+            <input type="text" id="returnDate">
           </div>
           <div class="form-group animated fadeIn">
             <label for="projectPassengerInputField">Number of Passengers*</label>

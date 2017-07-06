@@ -1,3 +1,5 @@
+
+
 function displayFlightsConcerts()
 { 
   var currentDate = moment();
@@ -43,6 +45,17 @@ function displayFlightsConcerts()
   }
 }
 $( document ).ready(function() {
+$( "#departDate" ).datepicker({ minDate: 0});
+$("#departDate").keypress(function (event){
+  event.preventDefault();
+  $("#departDateMessage").css("visibility", "visible");
+});
+
+$( "#returnDate" ).datepicker({ minDate: 0});
+$("#returnDate").keypress(function (event){
+  event.preventDefault();
+  $("#returnDateMessage").css("visibility", "visible");
+});
 
   $( "#sectionB" ).hide();
 
