@@ -197,7 +197,6 @@ $( document ).ready(function() {
     event.preventDefault();
     $("#returnDateMessage").css("visibility", "visible");
     });
-  });
 
   $( "#go" ).click(function() {
     displayFlightsConcerts()
