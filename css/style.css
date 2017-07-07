@@ -167,6 +167,10 @@ input {
   height: 300px;
 }
 
+.gm-style-iw {
+	color: black;
+}
+
 #goAgain {
   height: 34px;
   width: 100%;
