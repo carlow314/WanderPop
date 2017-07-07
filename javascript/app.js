@@ -185,6 +185,7 @@ $( document ).ready(function() {
     });
   });
 
+
     $("#departDateB").datepicker({ minDate: 0});
     $("#departDateB").keypress(function (event) {
     event.preventDefault();
@@ -196,18 +197,15 @@ $( document ).ready(function() {
     event.preventDefault();
     $("#returnDateMessage").css("visibility", "visible");
     });
-
-  $( "#goAgain" ).click(function() {
-
-    $( "#sectionA" ).hide();
-    $( "#sectionB" ).show();
-    displayFlightsConcertsAgain();
   });
 
   $( "#go" ).click(function() {
     displayFlightsConcerts()
   });
-
+  $( "#goAgain" ).click(function() {
+    event.preventDefault();
+    displayFlightsConcertsAgain();
+  });
   $( "#startOver" ).click(function() {
     $( "#sectionB" ).hide();
     $( "#sectionA" ).show( 500 );
