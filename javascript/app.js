@@ -189,10 +189,7 @@ $( document ).ready(function() {
 
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show();
-    getFlights();
-    getConcerts();
     displayFlightsConcertsAgain();
-
   });
 
   $( "#go" ).click(function() {
