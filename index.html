@@ -100,6 +100,7 @@
               <input id="originCityB">
             </div>
           </div>
+          
           <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
             <label>Destination</label>
             <div class="ui-widgetB">
@@ -107,14 +108,19 @@
               <input id="destCityB">
             </div>
           </div>
-          <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
-            <label>Departing</label>
-            <input class="form-control" type="date" value="2017-01-01" id="departDateB">
+
+          <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn" >
+            <label for="projectDateInputField1">Departing*  </label>
+            <input type="text" id="departDateB">
+            <span id="departDateMessage" style="color:#FF0000;visibility: hidden;">Please use the date picker to select your date.</span>
           </div>
+          
           <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
-            <label>Returning</label>
-            <input class="form-control" type="date" value="2017-01-01" id="returnDateB">
+            <label for="projectDateInputField2">Returning*  </label>
+            <input type="text" id="returnDateB">
+            <span id="returnDateMessage" style="color:#FF0000;visibility: hidden;">Please use the date picker to select your date.</span>
           </div>
+        
           <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 animated fadeIn">
             <label>Passengers</label>
             <select class="form-control" id="passNumB">

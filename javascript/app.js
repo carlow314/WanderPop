@@ -185,6 +185,18 @@ $( document ).ready(function() {
     });
   });
 
+    $("#departDateB").datepicker({ minDate: 0});
+    $("#departDateB").keypress(function (event) {
+    event.preventDefault();
+    $("#departDateMessage").css("visibility", "visible");
+    });
+
+    $( "#returnDateB" ).datepicker({ minDate: 0});
+    $("#returnDateB").keypress(function (event){
+    event.preventDefault();
+    $("#returnDateMessage").css("visibility", "visible");
+    });
+
   $( "#goAgain" ).click(function() {
 
     $( "#sectionA" ).hide();
