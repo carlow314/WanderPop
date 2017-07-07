@@ -1,24 +1,24 @@
+//function to get airport code from city name for api
 function getAirportCode(city)
 {
   var index = city.indexOf("-");
   return city.substring(index+2, city.length);
 }
-
+//function to get carrier name by comparing it to the carrier code
 function getAirlineName(carrierCode,carrierArray){
   var name;
-  console.log("carrier code:",carrierCode);
   for (var i = 0; i < carrierArray.length; i += 1) {
  var code = carrierArray[i].code;
  if(carrierCode === code){
    name = carrierArray[i].name
  }
-      console.log("carrier code:",carrierCode);
-      console.log("carrier array :",carrierArray[i]);
     }
     return name;
 }
+//API request function that will subsuqently display flight info in tables
 function getFlights()
 {
+  //flight variables to pass into api request
   var originCity = $("#originCity").val();
   var destCity = $("#destCity").val();
   var noOfPeople = $("#passNum").val();
@@ -26,6 +26,7 @@ function getFlights()
   var returnDate = $("#returnDate").val();
   var originAirportCode = getAirportCode(originCity);
   var destAirportCode = getAirportCode(destCity);
+//JSON object with flight search criteria for API
   var FlightRequest =
   {
     "request": {
@@ -37,15 +38,17 @@ function getFlights()
         "origin": originAirportCode,
         "destination": destAirportCode,
         "date": moment(departDate).format('YYYY-MM-DD'),
+        "maxStops": 0
       }, {
         "origin": destAirportCode,
         "destination": originAirportCode,
         "date": moment(returnDate).format('YYYY-MM-DD'),
+        "maxStops": 0
       }],
       "solutions": 5
     }
   }
-
+//API Call
   $.ajax({
     type: "POST",
     //Set up your request URL and API Key.
@@ -108,11 +111,7 @@ function getFlights()
         conciseRoundTripData.push(conciseRoundTrip);
       }
       console.log(conciseRoundTripData);
-
-  // console.log("Your first leg leaves at:",moment(legOneDepartTime).format("MMMM Do YYYY, h:mm a"));
-  // console.log("Your first leg arrives at:",moment(legOneArrivalTime).format("MMMM Do YYYY, h:mm a"));
-  // console.log("Your second leg leaves at:",moment(legTwoDepartTime).format("MMMM Do YYYY, h:mm"));
-  // console.log("Your second leg arrives at:",moment(legTwoArrivalTime).format("MMMM Do YYYY, h:mm a"));
+;
       var htmlStr1 = "";
       var htmlStr2 = "";
       for (var i = 0; i < conciseRoundTripData.length; i++)
@@ -145,7 +144,8 @@ function getFlights()
     } //end of success: function (response)
   });
 };
-
+//API request function that will subsuqently display flight info in tables.
+//This is based on the modify search parameters
 function getFlightsAgain()
 {
   var originCity = $("#originCityB").val();
