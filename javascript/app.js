@@ -189,8 +189,6 @@ $( document ).ready(function() {
 
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show();
-    getFlights();
-    getConcerts();
     displayFlightsConcertsAgain();
 
   });
