@@ -205,6 +205,7 @@ $( document ).ready(function() {
   });
   $( "#goAgain" ).click(function() {
     event.preventDefault();
+    $("errorMessage").empty();
     displayFlightsConcertsAgain();
   });
   $( "#startOver" ).click(function() {
