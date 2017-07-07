@@ -1,3 +1,18 @@
+function populateModifySearch()
+{
+  var origin = $("#originCity").val();
+  var destCity = $("#destCity").val();
+  var departDate = $("#departDate").val();
+  var returnDate = $("#returnDate").val();
+  var passenger = $("#passNum").val();
+  $("#originCityB").val(origin);
+  $("#destCityB").val(destCity);
+  $("#departDateB").val(departDate);
+  $("#returnDateB").val(returnDate);
+  $("#passNumB").val(passenger);
+
+}
+
 
 function displayFlightsConcerts()
 {
@@ -199,16 +214,7 @@ $( document ).ready(function() {
     });
 
   $( "#go" ).click(function() {
-    var origin = $("#originCity").val();
-    var destCity = $("#destCity").val();
-  	var departDate = $("#departDate").val();
-  	var returnDate = $("#returnDate").val();
-    var passenger = $("#passNum").val();
-    $("#originCityB").val(origin);
-    $("#destCityB").val(destCity);
-    $("#departDateB").val(departDate);
-    $("#returnDateB").val(returnDate);
-    $("#passNumB").val(passenger);
+    populateModifySearch();
     displayFlightsConcerts()
   });
   $( "#goAgain" ).click(function() {
