@@ -204,7 +204,6 @@ $( document ).ready(function() {
   	var departDate = $("#departDate").val();
   	var returnDate = $("#returnDate").val();
     var passenger = $("#passNum").val();
-
     $("#originCityB").val(origin);
     $("#destCityB").val(destCity);
     $("#departDateB").val(departDate);
