@@ -1,6 +1,6 @@
 
 function displayFlightsConcerts()
-{ 
+{
   var departDDT;
   var returnDDT;
   var originCity = $("#originCity").val();
@@ -8,7 +8,7 @@ function displayFlightsConcerts()
   var noOfPeople = $("#passNum").val();
   var departDate = $("#departDate").val();
   var returnDate = $("#returnDate").val();
-  
+
   //console.log(returnDateDDT._i);
   var htmlStr = "";
   var displayErrorMsg = false;
@@ -56,7 +56,7 @@ function displayFlightsConcerts()
 }
 
 function displayFlightsConcertsAgain()
-{ 
+{
   var departDDT;
   var returnDDT;
   var originCity = $("#originCityB").val();
@@ -186,61 +186,21 @@ $( document ).ready(function() {
   });
 
   $( "#goAgain" ).click(function() {
+
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show();
     getFlights();
     getConcerts();
+    displayFlightsConcertsAgain();
+
   });
 
   $( "#go" ).click(function() {
-    var currentDate = moment();
-    var currDDT = moment.unix(currentDate);
-    var originCity = $("#originCity").val();
-    var destCity = $("#destCity").val();
-    var noOfPeople = $("#passNum").val();
-    var departDate = $("#departDate").val();
-    var returnDate = $("#returnDate").val();
-    var departDDT = moment.unix(departDate);
-    var returnDDT = moment.unix(returnDate);
-    var htmlStr = "<ul>";
-    var displayErrorMsg = false;
-    //Data Validation
-    if (originCity === "") {
-      //code for modal
-      htmlStr += "<li>Please enter an Origin city.</li>";
-      displayErrorMsg = true;
-    }
-    if (destCity === "") {
-      //code for modal
-      htmlStr += "<li>Please enter a Destination city.</li>";
-      displayErrorMsg = true;
-    }
-    if (departDate === "") {
-      //code for modal
-      htmlStr += "<li>Please enter a Depart date.</li>";
-      displayErrorMsg = true;
-    }
-    if (returnDate === "") {
-      //code for modal
-      htmlStr += "<li>Please enter a Return date.</li>";
-      displayErrorMsg = true;
-    }
-    if (displayErrorMsg === true)
-    {
-      htmlStr += "</ul>";
-      $("#errorMessage").html(htmlStr);
-    }
-    else {
-      $( "#sectionA" ).hide();
-      $( "#sectionB" ).show( 500 );
-      getFlights();
-      getConcerts();
-    }
+    displayFlightsConcerts()
   });
 
   $( "#startOver" ).click(function() {
     $( "#sectionB" ).hide();
     $( "#sectionA" ).show( 500 );
   });
-
 });
