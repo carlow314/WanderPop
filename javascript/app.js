@@ -218,6 +218,7 @@ $( document ).ready(function() {
   });
   $( "#startOver" ).click(function() {
     $("#errorMessage").empty();
+    $("#errorMessageGoAgain").empty();
     $( "#sectionB" ).hide();
     $( "#sectionA" ).show( 500 );
   });
