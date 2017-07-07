@@ -50,6 +50,7 @@ function displayFlightsConcerts()
   else {
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show( 500 );
+    $("errorMessage").empty();
     getFlights();
     getConcerts();
   }
@@ -104,6 +105,7 @@ function displayFlightsConcertsAgain()
   else {
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show( 500 );
+    $("errorMessage").empty();
     getFlightsAgain();
     getConcertsAgain();
   }
@@ -206,6 +208,7 @@ $( document ).ready(function() {
     displayFlightsConcertsAgain();
   });
   $( "#startOver" ).click(function() {
+    $("errorMessage").empty();
     $( "#sectionB" ).hide();
     $( "#sectionA" ).show( 500 );
   });
