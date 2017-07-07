@@ -184,6 +184,7 @@ $( document ).ready(function() {
       source: availableTags
     });
   });
+<<<<<<< Updated upstream
 
     $("#departDateB").datepicker({ minDate: 0});
     $("#departDateB").keypress(function (event) {
@@ -204,10 +205,15 @@ $( document ).ready(function() {
     displayFlightsConcertsAgain();
   });
 
+=======
+>>>>>>> Stashed changes
   $( "#go" ).click(function() {
     displayFlightsConcerts()
   });
-
+  $( "#goAgain" ).click(function() {
+    event.preventDefault();
+    displayFlightsConcertsAgain();
+  });
   $( "#startOver" ).click(function() {
     $( "#sectionB" ).hide();
     $( "#sectionA" ).show( 500 );

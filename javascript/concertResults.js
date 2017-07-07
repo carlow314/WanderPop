@@ -89,6 +89,7 @@ function getConcertsAgain() {
 	})
 	//What to run after data is received
 	.done(function(response){
+		conInfo=[];
 		var obj =
 		{
 			"lat": 0,
