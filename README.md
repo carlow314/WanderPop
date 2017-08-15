@@ -3,6 +3,6 @@ An airfare and event search app to help you plan your next trip! This applicatio
 
 ## Use of App
 
-1.) Once you are on the main page you will enter the criteria for your upcoming flight. You will need to input the departing city and destination city as well as the dates of travel.
+1.) Once you are on the main page you will enter the criteria for your upcoming flight. You will need to input the departing city and destination city as well as the dates of travel, and the number of passengers.
 
 ![CalcLite Screen Shot](images/home_screenshot.png)
