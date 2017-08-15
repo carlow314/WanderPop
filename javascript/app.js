@@ -13,16 +13,32 @@ function populateModifySearch()
 
 }
 
-
-function displayFlightsConcerts()
+function displayFlightsConcerts(goAgainFl)
 {
   var departDDT;
   var returnDDT;
-  var originCity = $("#originCity").val();
-  var destCity = $("#destCity").val();
-  var noOfPeople = $("#passNum").val();
-  var departDate = $("#departDate").val();
-  var returnDate = $("#returnDate").val();
+  var originCity;
+  var destCity;
+  var noOfPeople;
+  var departDate;
+  var returnDate;
+
+  if (goAgainFl === false)
+  {
+    originCity = $("#originCity").val();
+    destCity = $("#destCity").val();
+    noOfPeople = $("#passNum").val();
+    departDate = $("#departDate").val();
+    returnDate = $("#returnDate").val();
+  }
+  else
+  {
+    originCity = $("#originCityB").val();
+    destCity = $("#destCityB").val();
+    noOfPeople = $("#passNumB").val();
+    departDate = $("#departDateB").val();
+    returnDate = $("#returnDateB").val();
+  }
 
   //console.log(returnDateDDT._i);
   var htmlStr = "";
@@ -60,67 +76,20 @@ function displayFlightsConcerts()
     displayErrorMsg = true;
   }
   if (displayErrorMsg === true) {
-    $("#errorMessage").html(htmlStr);
+    if (goAgainFl === false)
+    {
+      $("#errorMessage").html(htmlStr);
+    }
+    else
+    {
+      $("#errorMessageGoAgain").html(htmlStr);
+    }
   }
   else {
     $( "#sectionA" ).hide();
     $( "#sectionB" ).show( 500 );
-    getFlights();
-    getConcerts();
-  }
-}
-
-function displayFlightsConcertsAgain()
-{
-  var departDDT;
-  var returnDDT;
-  var originCity = $("#originCityB").val();
-  var destCity = $("#destCityB").val();
-  var noOfPeople = $("#passNumB").val();
-  var departDate = $("#departDateB").val();
-  var returnDate = $("#returnDateB").val();
-  var htmlStr = "";
-  var displayErrorMsg = false;
-  //Data Validation
-  if (originCity === "") {
-    //code for modal
-    htmlStr += "<h4>. Please enter an Origin city</h4>";
-    displayErrorMsg = true;
-  }
-  if (destCity === "") {
-    //code for modal
-    htmlStr += "<h4>. Please enter a Destination city<h4>";
-    displayErrorMsg = true;
-  }
-  if (departDate === "") {
-    //code for modal
-    htmlStr += "<h4>. Please enter a Depart date</h4>";
-    displayErrorMsg = true;
-  }
-  else {
-    departDDT = moment(departDate).unix();
-  }
-  if (returnDate === "") {
-    //code for modal
-    htmlStr += "<h4>. Please enter a Return date</h4>";
-    displayErrorMsg = true;
-  }
-  else {
-    returnDDT = moment(returnDate).unix();
-  }
-  if (departDDT >= returnDDT)
-  {
-    htmlStr += "<h4>. Invalid Depart date</h4>";
-    displayErrorMsg = true;
-  }
-  if (displayErrorMsg === true) {
-    $("#errorMessageGoAgain").html(htmlStr);
-  }
-  else {
-    $( "#sectionA" ).hide();
-    $( "#sectionB" ).show( 500 );
-    getFlightsAgain();
-    getConcertsAgain();
+    getFlights(goAgainFl);
+    getConcerts(goAgainFl);
   }
 }
 
@@ -215,12 +184,12 @@ $( document ).ready(function() {
 
   $( "#go" ).click(function() {
     populateModifySearch();
-    displayFlightsConcerts()
+    displayFlightsConcerts(false)
   });
   $( "#goAgain" ).click(function() {
     event.preventDefault();
     $("#errorMessageGoAgain").empty();
-    displayFlightsConcertsAgain();
+    displayFlightsConcerts(true);
   });
   $( "#startOver" ).click(function() {
     $("#errorMessage").empty();
