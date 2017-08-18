@@ -15,3 +15,12 @@ An airfare and event search app to help you plan your next trip! This applicatio
 4.) The bottom of page will have the details for the first 10 results the eventful API returns as well as a back button. The back button will return you to the home page.
 ![WanderPop concert Screen](images/conertresults.png)
 
+# Technologies Used
+* HTML
+* CSS
+* Bootstrap
+* Materialize
+* Firebase
+* API's - QPX Express, Eventful, Google Maps
+* Javascript
+* Jquery
